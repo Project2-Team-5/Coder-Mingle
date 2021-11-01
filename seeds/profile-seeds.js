@@ -42,6 +42,20 @@ const profileData = [
         gender: "female",
         pref_gender: "both",
         bio: "This is where someone will talk about themselves."
+    },
+    {
+        UserId: 7,
+        birthdate: "1983-09-29",
+        gender: "male",
+        pref_gender: "male",
+        bio: "This is where someone will talk about themselves."
+    },
+    {
+        UserId: 8,
+        birthdate: "1985-08-04",
+        gender: "female",
+        pref_gender: "female",
+        bio: "This is where someone will talk about themselves."
     }
 ]
 

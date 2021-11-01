@@ -42,6 +42,20 @@ const userData = [
         username: "Morwenna123",
         email: "Morwenna@Simmon.com",
         password: "password"
+    },
+    {
+        first_name: "Stephanos",
+        last_name: "Simmon",
+        username: "Stephanos123",
+        email: "Stephanos@Jaso.com",
+        password: "password"
+    },
+    {
+        first_name: "Armelle",
+        last_name: "Temitope",
+        username: "Armelle123",
+        email: "Armelle@Temitope.com",
+        password: "password"
     }
 ]
 
