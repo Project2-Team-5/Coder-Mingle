@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const {User,Profile,Post,Match} = require("../../models")
+const {User,Post,Survey} = require("../../models")
 
 router.get("/",(req,res) => {
     User.findAll({
-        include:[Profile]
+        include:[Survey]
     }).then(dbUser=>{
         if(dbUser.length){
             res.json(dbUser)
