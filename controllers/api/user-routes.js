@@ -1,5 +1,23 @@
 const router = require('express').Router();
-const {User} = require("../../models")
+
+const {User,Post,Survey} = require("../../models")
+
+router.get("/",(req,res) => {
+    User.findAll({
+        include:[Survey]
+    }).then(dbUser=>{
+        if(dbUser.length){
+            res.json(dbUser)
+        }
+        else {
+            res.status(404).json({message:"No Users Found"})
+        }
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({message:"An Error Occured",err:err})
+    })
+})
+
 
 // sign up a new user
 router.post('/', async (req, res) => {

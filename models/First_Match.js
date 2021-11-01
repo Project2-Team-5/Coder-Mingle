@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Match extends Model {}
+class First_Match extends Model {}
 
-Match.init({
+First_Match.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -24,4 +24,4 @@ Match.init({
     timestamps: false 
 })
 
-module.exports=Match
+module.exports=First_Match

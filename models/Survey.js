@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Profile extends Model {}
+class Survey extends Model {}
 
-Profile.init({
+Survey.init({
     birthdate: {
         type: DataTypes.DATEONLY,
         allowNull: false
@@ -19,6 +19,26 @@ Profile.init({
     bio: {
         type: DataTypes.TEXT,
         allowNull: false
+    },
+    relationship: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    goal: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    language: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    worker: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    ideal_date: {
+        type: DataTypes.TEXT,
+        allowNull: false
     }
 },
 {
@@ -26,4 +46,4 @@ Profile.init({
     timestamps: false 
 })
 
-module.exports=Profile
+module.exports=Survey
