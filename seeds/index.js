@@ -3,6 +3,7 @@ const seedPosts = require("./post-seeds")
 const seedFirstMatches = require("./first_match-seeds")
 const seedSecondMatches = require("./second_match-seeds")
 const seedSurvey = require("./survey-seeds")
+const seedMatchedWith = require("./matched_with-seeds")
 
 const sequelize = require("../config/connection")
 
@@ -17,6 +18,8 @@ const seedAll = async () => {
     console.log('\n-----FIRST MATCHES SEEDED-----')
     await seedSecondMatches()
     console.log('\n-----SECOND MATCHES SEEDED-----')
+    await seedMatchedWith()
+    console.log('\n-----MATCHED WITH SEEDED-----')
     await seedSurvey()
     console.log('\n-----SURVEYS SEEDED-----')
     process.exit(0)

@@ -3,6 +3,7 @@ const Post = require("./Post")
 const First_Match = require("./First_Match")
 const Second_Match = require("./Second_Match")
 const Survey = require("./Survey")
+const Matched_With = require("./Matched_With")
 
 User.hasOne(Survey)
 
@@ -29,10 +30,18 @@ User.belongsToMany(User, {
     otherKey: "user_2"
 })
 
+User.belongsToMany(User, {
+    through: Matched_With,
+    as: "matched_with",
+    foreignKey: "user_1",
+    otherKey: "user_2"
+})
+
 module.exports={
     User,
     Post,
     First_Match,
     Second_Match,
-    Survey
+    Survey,
+    Matched_With
 }
