@@ -1,7 +1,8 @@
 const seedUsers = require("./user-seeds")
-const seedProfiles = require("./profile-seeds")
 const seedPosts = require("./post-seeds")
-const seedMatches = require("./match-seeds")
+const seedFirstMatches = require("./first_match-seeds")
+const seedSecondMatches = require("./second_match-seeds")
+const seedSurvey = require("./survey-seeds")
 
 const sequelize = require("../config/connection")
 
@@ -10,12 +11,14 @@ const seedAll = async () => {
     console.log('\n-----DATABASE SYNCED-----\n')
     await seedUsers()
     console.log('\n-----USERS SEEDED-----')
-    await seedProfiles()
-    console.log('\n-----PROFILES SEEDED-----')
     await seedPosts()
     console.log('\n-----POSTS SEEDED-----')
-    await seedMatches()
-    console.log('\n-----MATCHES SEEDED-----')
+    await seedFirstMatches()
+    console.log('\n-----FIRST MATCHES SEEDED-----')
+    await seedSecondMatches()
+    console.log('\n-----SECOND MATCHES SEEDED-----')
+    await seedSurvey()
+    console.log('\n-----SURVEYS SEEDED-----')
     process.exit(0)
 }
 
