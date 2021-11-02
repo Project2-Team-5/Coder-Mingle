@@ -8,39 +8,39 @@ class Survey extends Model {}
 Survey.init({
     birthdate: {
         type: DataTypes.DATEONLY,
-        allowNull: false
+        allowNull: true
     },
     gender: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     pref_gender: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     bio: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     relationship: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     goal: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     language: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     worker: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     ideal_date: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     profile_pic: {
         type: DataTypes.TEXT
