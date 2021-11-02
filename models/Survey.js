@@ -44,11 +44,21 @@ Survey.init({
     },
     profile_pic: {
         type: DataTypes.INTEGER
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model:"user",
+            key: "id",
+        },
     }
 },
 {
     sequelize,
-    timestamps: false 
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName:'survey',
 })
 
 module.exports=Survey

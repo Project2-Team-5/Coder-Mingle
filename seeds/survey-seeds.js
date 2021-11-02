@@ -2,7 +2,7 @@ const {Survey} = require("../models")
 
 const surveyData = [
     {
-        UserId: 1,
+        user_id: 1,
         birthdate: "1980-04-29",
         gender: "male",
         pref_gender: "female",
@@ -15,7 +15,7 @@ const surveyData = [
         profile_pic: 1
     },
     {
-        UserId: 2,
+        user_id: 2,
         birthdate: "1982-01-04",
         gender: "male",
         pref_gender: "male",
@@ -28,7 +28,7 @@ const surveyData = [
         profile_pic: 2
     },
     {
-        UserId: 3,
+        user_id: 3,
         birthdate: "1992-03-20",
         gender: "male",
         pref_gender: "both",
@@ -41,7 +41,7 @@ const surveyData = [
         profile_pic: 3
     },
     {
-        UserId: 4,
+        user_id: 4,
         birthdate: "1998-06-14",
         gender: "female",
         pref_gender: "male",
@@ -54,7 +54,7 @@ const surveyData = [
         profile_pic: 4
     },
     {
-        UserId: 5,
+        user_id: 5,
         birthdate: "1999-04-08",
         gender: "female",
         pref_gender: "female",
@@ -67,7 +67,7 @@ const surveyData = [
         profile_pic: 5
     },
     {
-        UserId: 6,
+        user_id: 6,
         birthdate: "2000-10-06",
         gender: "female",
         pref_gender: "both",
@@ -80,7 +80,7 @@ const surveyData = [
         profile_pic: 6
     },
     {
-        UserId: 7,
+        user_id: 7,
         birthdate: "1983-09-29",
         gender: "male",
         pref_gender: "male",
@@ -93,7 +93,7 @@ const surveyData = [
         profile_pic: 7
     },
     {
-        UserId: 8,
+        user_id: 8,
         birthdate: "1985-08-04",
         gender: "female",
         pref_gender: "female",
