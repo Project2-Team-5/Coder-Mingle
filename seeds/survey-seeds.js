@@ -2,7 +2,7 @@ const {Survey} = require("../models")
 
 const surveyData = [
     {
-        UserId: 1,
+        user_id: 1,
         birthdate: "1980-04-29",
         gender: "male",
         pref_gender: "female",
@@ -14,7 +14,7 @@ const surveyData = [
         ideal_date: "Stay in, get takeout, watch a movie or play video games"
     },
     {
-        UserId: 2,
+        user_id: 2,
         birthdate: "1982-01-04",
         gender: "male",
         pref_gender: "male",
@@ -26,7 +26,7 @@ const surveyData = [
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes"
     },
     {
-        UserId: 3,
+        user_id: 3,
         birthdate: "1992-03-20",
         gender: "male",
         pref_gender: "both",
@@ -38,7 +38,7 @@ const surveyData = [
         ideal_date: "Go out with a group of friends for a game night or drinks"
     },
     {
-        UserId: 4,
+        user_id: 4,
         birthdate: "1998-06-14",
         gender: "female",
         pref_gender: "male",
@@ -50,7 +50,7 @@ const surveyData = [
         ideal_date: "Hit the club, take some shots, initiate the bender"
     },
     {
-        UserId: 5,
+        user_id: 5,
         birthdate: "1999-04-08",
         gender: "female",
         pref_gender: "female",
@@ -62,7 +62,7 @@ const surveyData = [
         ideal_date: "Stay in, get takeout, watch a movie or play video games"
     },
     {
-        UserId: 6,
+        user_id: 6,
         birthdate: "2000-10-06",
         gender: "female",
         pref_gender: "both",
@@ -74,7 +74,7 @@ const surveyData = [
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes"
     },
     {
-        UserId: 7,
+        user_id: 7,
         birthdate: "1983-09-29",
         gender: "male",
         pref_gender: "male",
@@ -86,7 +86,7 @@ const surveyData = [
         ideal_date: "Go out with a group of friends for a game night or drinks"
     },
     {
-        UserId: 8,
+        user_id: 8,
         birthdate: "1985-08-04",
         gender: "female",
         pref_gender: "female",

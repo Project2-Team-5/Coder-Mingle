@@ -39,11 +39,21 @@ Survey.init({
     ideal_date: {
         type: DataTypes.TEXT,
         allowNull: false
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model:"user",
+            key: "id",
+        },
     }
 },
 {
     sequelize,
-    timestamps: false 
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName:'survey',
 })
 
 module.exports=Survey
