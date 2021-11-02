@@ -1,9 +1,11 @@
+// Aproved matches
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Match extends Model {}
+class Second_Match extends Model {}
 
-Match.init({
+Second_Match.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -24,4 +26,4 @@ Match.init({
     timestamps: false 
 })
 
-module.exports=Match
+module.exports=Second_Match

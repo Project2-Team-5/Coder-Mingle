@@ -1,8 +1,14 @@
+// Table to store user data
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require("bcrypt");
 
-class User extends Model {}
+class User extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 User.init({
     first_name: {
@@ -44,7 +50,10 @@ User.init({
         }
     },
     sequelize,
-    timestamps: false
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName:'user'
 })
 
 module.exports=User
