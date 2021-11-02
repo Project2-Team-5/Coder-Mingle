@@ -4,6 +4,15 @@ const session = require('express-session');
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+var cloudinary = require('cloudinary').v2
+require('dotenv').config();
+
+// Sets the global settings for cloudinary
+cloudinary.config({ 
+  cloud_name: process.env.CLOUDINARY_NAME, 
+  api_key: process.env.CLOUDINARY_API, 
+  api_secret: process.env.CLOUDINARY_SECRET
+});
 
 const app = express();
 const PORT = process.env.PORT || 3001;

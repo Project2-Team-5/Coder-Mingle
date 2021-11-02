@@ -43,7 +43,7 @@ Survey.init({
         allowNull: false
     },
     profile_pic: {
-        type: DataTypes.INTEGER
+        type: DataTypes.TEXT
     },
     user_id: {
         type: DataTypes.INTEGER,
