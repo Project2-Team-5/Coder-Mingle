@@ -11,10 +11,16 @@
 <body>
     <header>
         <h1>CODER MINGLE</h1>
-        Login button | logout button
     </header>
- {{{ body }}}
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{/if}}
+    {{{ body }}}
 
-    
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
