@@ -5,7 +5,7 @@
 <p>{{user.first_name}}  {{user.last_name}} </p>
 
 <h3>Avatar</h3>
-<img src="https://via.placeholder.com/150"alr="personal photo">
+<img src="{{user.survey.profile_pic}}"alr="personal photo">
 
 
 <h3>Bio: </h3>
@@ -39,3 +39,4 @@
 <p>{{user.survey.ideal_date}}</p>
 
 <a href="/profile/edit">Edit</a>
+<a href="/userimages">View Images</a>

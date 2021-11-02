@@ -12,7 +12,7 @@ const surveyData = [
         language: "JavaScript",
         worker: "Work and energy drinks all night, everynight",
         ideal_date: "Stay in, get takeout, watch a movie or play video games",
-        profile_pic: 1
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/beybv9cgzva6chkxxsdz.png"
     },
     {
         user_id: 2,
@@ -25,7 +25,7 @@ const surveyData = [
         language: "C++",
         worker: "Hard worker but I need my social life balance",
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
-        profile_pic: 2
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/co9qy8vxbf2qhc3knea3.png"
     },
     {
         user_id: 3,
@@ -38,7 +38,7 @@ const surveyData = [
         language: "Python",
         worker: "Bare minimum to get the work done then do other hobbies",
         ideal_date: "Go out with a group of friends for a game night or drinks",
-        profile_pic: 3
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/pwrcttkasibmy1tkt7i2.png"
     },
     {
         user_id: 4,
@@ -51,7 +51,7 @@ const surveyData = [
         language: "HTML",
         worker: "None of the above",
         ideal_date: "Hit the club, take some shots, initiate the bender",
-        profile_pic: 4
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/xeloqi1url6heip5ny3f.png"
     },
     {
         user_id: 5,
@@ -64,7 +64,7 @@ const surveyData = [
         language: "JavaScript",
         worker: "Work and energy drinks all night, everynight",
         ideal_date: "Stay in, get takeout, watch a movie or play video games",
-        profile_pic: 5
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835947/te0jqgb9bvpalebnfk3d.png"
     },
     {
         user_id: 6,
@@ -77,7 +77,7 @@ const surveyData = [
         language: "C++",
         worker: "Hard worker but I need my social life balance",
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
-        profile_pic: 6
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835945/opboe2847jkdgqtekmpf.png"
     },
     {
         user_id: 7,
@@ -90,7 +90,7 @@ const surveyData = [
         language: "Python",
         worker: "Bare minimum to get the work done then do other hobbies",
         ideal_date: "Go out with a group of friends for a game night or drinks",
-        profile_pic: 7
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835945/jelvqartpd6lwmav6v0d.png"
     },
     {
         user_id: 8,
@@ -103,7 +103,7 @@ const surveyData = [
         language: "HTML",
         worker: "None of the above",
         ideal_date: "Hit the club, take some shots, initiate the bender",
-        profile_pic: 8
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/xeloqi1url6heip5ny3f.png"
     }
 ]
 

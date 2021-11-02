@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Survey } = require('../models');
+const { User, Survey, Image } = require('../models');
 const withAuth = require('../utils/auth');
 
 // landing page, direct to login page if not login
@@ -17,7 +17,7 @@ router.get('/profile', withAuth, async (req, res) => {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: Survey }],
+        include: [Survey,Image],
       });      
       
       const user = userData.get({ plain: true });
@@ -81,5 +81,34 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('login');
   });
 
+  router.get("/userimages",(req,res) => {
+    if(!req.session.logged_in) {
+      res.redirect("/login")
+      return
+    }
+    Image.findAll({
+      where: {
+        userId: req.session.user_id
+      }
+    }).then(imgData=>{
+      const hbsImg = imgData.map(img=>img.get({plain:true}))
+      res.render("userimages",{
+        img:hbsImg
+      })
+    })
+  })
+
+  router.get("/userimages/:id",(req,res)=>{
+    if(!req.session.logged_in) {
+      res.redirect("/login")
+    }
+    Image.findByPk(req.params.id)
+    .then(imgData=>{
+      const hbsImg = imgData.get({plain:true})
+      res.render("userimagesbyid",{
+        img:hbsImg
+      })
+    })
+  })
 
   module.exports = router;
