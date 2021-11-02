@@ -2,6 +2,7 @@ const User = require("./User")
 const Profile = require("./Profile")
 const Post = require("./Post")
 const Match = require("./Match")
+const Survey = require("./Survey")
 
 User.hasOne(Profile,
     {
@@ -34,9 +35,15 @@ User.belongsToMany(User, {
     otherKey: "user_1"
 })
 
+User.hasOne(Survey, {
+    onDelete: "CASCADE",
+    foreignKey: "user_id"
+})
+
 module.exports={
     User,
     Profile,
     Post,
-    Match
+    Match,
+    Survey
 }

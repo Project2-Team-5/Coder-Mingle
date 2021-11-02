@@ -21,8 +21,20 @@ router.get('/profile', withAuth, async (req, res) => {
     }
   });
   
+  router.get('/', (req, res) => {
+  res.render('homePage');
+  })
+
+  router.get('/survey', (req, res) => {
+    if (req.session.logged_in) {
+      res.render('survey');
+      return;
+    }
+  
+    res.render('login');
+  });
+
   router.get('/login', (req, res) => {
-    // TODO: should redirect to main page, this is for testing purpose
     if (req.session.logged_in) {
       res.redirect('/profile');
       return;

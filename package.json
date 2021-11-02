@@ -1,7 +1,7 @@
 {
   "name": "coder-mingle",
   "version": "1.0.0",
-  "description": "",
+  "description": "A dating website for people who code. ## Usage To seed the database run: npm run seed   ## Credits Charlotte Hulseman - [GitHub Profile](https://github.com/charlottehulseman)   Julian Voros - [GitHub Profile](https://github.com/JuVoros)   Sherry Zheng - [GitHub Profile](https://github.com/sherryzheng2018)   Zach Smith - [GitHub Profile](https://github.com/Lemelisk27)",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -28,5 +28,6 @@
     "handlebars": "^4.7.7",
     "mysql2": "^2.3.2",
     "sequelize": "^6.8.0"
-  }
+  },
+  "keywords": []
 }

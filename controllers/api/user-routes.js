@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User} = require("../../models")
+const {User, Survey} = require("../../models");
 
 // sign up a new user
 router.post('/', async (req, res) => {
@@ -21,6 +21,25 @@ router.post('/', async (req, res) => {
     }
   });
   
+router.post('/survey', async (req, res) => {
+  try {
+    const userData = await Survey.create({
+      user_id: req.session.user_id,
+      pref_gender: req.body.genderPref, 
+      dating_for: req.body.datingFor,
+      relationship_type: req.body.relationshipType,
+      programmer_type: req.body.programmerType,
+      worker_type: req.body.workerType,
+      ideal_date: req.body.idealDate
+    })
+    console.log(userData)
+    res.json(userData)
+  } 
+  catch(err) {
+    console.log(err)
+  }
+})
+
 // login an existing user
   router.post('/login', async (req, res) => {
     try {
