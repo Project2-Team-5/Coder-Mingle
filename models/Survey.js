@@ -1,37 +1,64 @@
+// Table for extended user data
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Survey extends Model {}
 
 Survey.init({
+    birthdate: {
+        type: DataTypes.DATEONLY,
+        allowNull: false
+    },
+    gender: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     pref_gender: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    dating_for: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    relationship_type: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    programmer_type: {
+    bio: {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    programmer_type: {
-        type: DataTypes.STRING,
+    relationship: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    goal: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    language: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    worker: {
+        type: DataTypes.TEXT,
         allowNull: false
     },
     ideal_date: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
+    },
+    profile_pic: {
+        type: DataTypes.TEXT
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model:"user",
+            key: "id",
+        },
     }
 },
 {
     sequelize,
-    timestamps: false 
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName:'survey',
 })
 
 module.exports=Survey

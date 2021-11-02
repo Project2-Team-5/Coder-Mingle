@@ -1,3 +1,42 @@
 
 <h1>This is a profile testing page, {{user.username}}</h1>
 
+<h3>Name:</h3> 
+<p>{{user.first_name}}  {{user.last_name}} </p>
+
+<h3>Avatar</h3>
+<img src="{{user.survey.profile_pic}}"alr="personal photo">
+
+
+<h3>Bio: </h3>
+<p>{{user.survey.bio}}</p>
+
+<h3>Email: </h3>
+<p> {{user.email}}</p>
+
+<h3>Gender:</h3>
+<p> {{user.survey.gender}} </p>
+
+<h3>Birthday:</h3>
+<p> {{user.survey.birthdate}} </p>
+
+<h3>Preferred gender: </h3>
+<p>{{user.survey.pref_gender}} </p>
+
+<h3>What are you looking for: </h3>
+<p>{{user.survey.relationship}}</p>
+
+<h3>You join Coder Mingle for: </h3>
+<p>{{user.survey.goal}}</p>
+
+<h3>Your working style is: </h3>
+<p>{{user.survey.worker}}</p>
+
+<h3>Your preferred language: </h3>
+<p>{{user.survey.language}}</p>
+
+<h3>Ideal date night will be: </h3>
+<p>{{user.survey.ideal_date}}</p>
+
+<a href="/profile/edit">Edit</a>
+<a href="/userimages">View Images</a>
