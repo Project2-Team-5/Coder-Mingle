@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   if(req.session.logged_in){
   res.redirect('/profile');
   } else {
-    res.render('landingPage');
+    res.render('homepage');
   }
 });
 
@@ -122,5 +122,7 @@ router.get('/profile', withAuth, async (req, res) => {
       })
     })
   })
+
+
 
   module.exports = router;
