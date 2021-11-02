@@ -8,13 +8,35 @@ router.get('/profile', withAuth, async (req, res) => {
       // Find the logged in user based on the session ID
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        // include: [{ model: Profile }],
+        // include: [{ model: User }],
       });      
 
       const user = userData.get({ plain: true });
       console.log(user)
       res.render('profile',{
           user
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/profile/:id', async (req, res) => {
+    try {
+      const profileData = await Profile.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ['username'],
+          },
+        ],
+      });
+  
+      const profileOwner = profileData.get({ plain: true });
+  
+      res.render('profile', {
+        ...profileOwner,
+        logged_in: req.session.logged_in
       });
     } catch (err) {
       res.status(500).json(err);
