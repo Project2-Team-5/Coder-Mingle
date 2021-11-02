@@ -1,3 +1,5 @@
+// Table for extended user data
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -39,6 +41,9 @@ Survey.init({
     ideal_date: {
         type: DataTypes.TEXT,
         allowNull: false
+    },
+    profile_pic: {
+        type: DataTypes.INTEGER
     }
 },
 {

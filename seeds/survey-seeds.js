@@ -11,7 +11,8 @@ const surveyData = [
         goal: "Long-term relationship",
         language: "JavaScript",
         worker: "Work and energy drinks all night, everynight",
-        ideal_date: "Stay in, get takeout, watch a movie or play video games"
+        ideal_date: "Stay in, get takeout, watch a movie or play video games",
+        profile_pic: 1
     },
     {
         UserId: 2,
@@ -23,7 +24,8 @@ const surveyData = [
         goal: "Just looking for something casual",
         language: "C++",
         worker: "Hard worker but I need my social life balance",
-        ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes"
+        ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
+        profile_pic: 2
     },
     {
         UserId: 3,
@@ -35,7 +37,8 @@ const surveyData = [
         goal: "I need programming help",
         language: "Python",
         worker: "Bare minimum to get the work done then do other hobbies",
-        ideal_date: "Go out with a group of friends for a game night or drinks"
+        ideal_date: "Go out with a group of friends for a game night or drinks",
+        profile_pic: 3
     },
     {
         UserId: 4,
@@ -47,7 +50,8 @@ const surveyData = [
         goal: "None of the above",
         language: "HTML",
         worker: "None of the above",
-        ideal_date: "Hit the club, take some shots, initiate the bender"
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: 4
     },
     {
         UserId: 5,
@@ -59,7 +63,8 @@ const surveyData = [
         goal: "Long-term relationship",
         language: "JavaScript",
         worker: "Work and energy drinks all night, everynight",
-        ideal_date: "Stay in, get takeout, watch a movie or play video games"
+        ideal_date: "Stay in, get takeout, watch a movie or play video games",
+        profile_pic: 5
     },
     {
         UserId: 6,
@@ -71,7 +76,8 @@ const surveyData = [
         goal: "Just looking for something casual",
         language: "C++",
         worker: "Hard worker but I need my social life balance",
-        ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes"
+        ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
+        profile_pic: 6
     },
     {
         UserId: 7,
@@ -83,7 +89,8 @@ const surveyData = [
         goal: "I need programming help",
         language: "Python",
         worker: "Bare minimum to get the work done then do other hobbies",
-        ideal_date: "Go out with a group of friends for a game night or drinks"
+        ideal_date: "Go out with a group of friends for a game night or drinks",
+        profile_pic: 7
     },
     {
         UserId: 8,
@@ -95,7 +102,8 @@ const surveyData = [
         goal: "None of the above",
         language: "HTML",
         worker: "None of the above",
-        ideal_date: "Hit the club, take some shots, initiate the bender"
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: 8
     }
 ]
 

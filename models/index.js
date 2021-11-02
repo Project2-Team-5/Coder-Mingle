@@ -4,6 +4,7 @@ const First_Match = require("./First_Match")
 const Second_Match = require("./Second_Match")
 const Survey = require("./Survey")
 const Matched_With = require("./Matched_With")
+const Image = require("./Image")
 
 User.hasOne(Survey)
 
@@ -37,11 +38,18 @@ User.belongsToMany(User, {
     otherKey: "user_2"
 })
 
+User.hasMany(Image, {
+    onDelete: "CASCADE"
+})
+
+Image.belongsTo(User)
+
 module.exports={
     User,
     Post,
     First_Match,
     Second_Match,
     Survey,
-    Matched_With
+    Matched_With,
+    Image
 }

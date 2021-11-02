@@ -1,3 +1,5 @@
+// A table that shows all previous matchs so people aren't matched twice.
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
