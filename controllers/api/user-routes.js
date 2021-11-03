@@ -45,16 +45,18 @@ router.post('/', async (req, res) => {
 router.post('/survey', async (req, res) => {
   try {
     const userData = await Survey.create({
+      profile_pic: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
       userId: req.session.user_id,
-      gender: req.session.gender,
+      gender: req.body.gender,
       pref_gender: req.body.genderPref, 
-      dating_for: req.body.datingFor,
-      relationship_type: req.body.relationshipType,
+      goal: req.body.datingFor,
+      relationship: req.body.relationshipType,
       language: req.body.language,
       birthdate: req.body.birthdate,
       programmer_type: req.body.programmerType,
-      worker_type: req.body.workerType,
-      ideal_date: req.body.idealDate
+      worker: req.body.workerType,
+      ideal_date: req.body.idealDate,
+      bio:req.body.bio
     })
     console.log(userData)
     res.json(userData)
