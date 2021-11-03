@@ -1,1 +1,13 @@
-<h1>Hello World </h1>
+<h1>See who you have connected!</h1>
+
+
+{{#each userList}}
+<a href="/profile?id={{userId}}">
+<div>
+    <img src="{{profile_pic}}" alt="User profile image {{fullname}}">
+</div>
+</a>
+<div>
+    {{fullname}}
+</div>
+{{/each}}
