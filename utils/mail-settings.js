@@ -1,3 +1,5 @@
+// If there's an error this will log the error in the errorlog.json file and send an e-mail alerting us of the error.
+
 const fs = require("fs")
 require('dotenv').config()
 const nodemailer = require("nodemailer")

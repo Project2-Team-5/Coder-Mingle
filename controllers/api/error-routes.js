@@ -1,3 +1,5 @@
+// An API route to show us any logged errors.
+
 const router = require('express').Router();
 const errors = require("../../utils/errorlog.json")
 
