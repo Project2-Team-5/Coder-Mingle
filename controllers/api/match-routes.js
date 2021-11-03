@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, Image, Matched_With, Survey} = require("../../models")
+const sendError = require("../../utils/mail-settings.js")
 
 // Shows the first matches
 router.get("/first",(req,res)=>{
@@ -13,6 +14,7 @@ router.get("/first",(req,res)=>{
             res.status(404).json({message:"No Matches Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -30,6 +32,7 @@ router.get("/second",(req,res)=>{
             res.status(404).json({message:"No Matches Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -63,6 +66,7 @@ router.get("/matchedwith", (req,res)=>{
             res.status(404).json({message:"No Matches Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
