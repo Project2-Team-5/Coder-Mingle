@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Survey, Image, Matched_With } = require('../models');
 const withAuth = require('../utils/auth');
 const getCurrentUserOrById = require('../utils/userUtil')
+const sendError = require("../utils/mail-settings.js")
 
 // landing page, direct to login page if not login
 router.get('/', async (req, res) => {
@@ -28,6 +29,7 @@ router.get('/', async (req, res) => {
         logged_in: req.session.logged_in
       });
     } catch (err) {
+      sendError(err)
       res.status(500).json(err);
     }
   });
@@ -50,6 +52,7 @@ router.get('/profile', withAuth, async (req, res) => {
       selectedUserId: userId
     });
   } catch (err) {
+    sendError(err)
     res.status(500).json(err);
   
   }
@@ -72,6 +75,7 @@ router.get('/profile', withAuth, async (req, res) => {
       })
 
     } catch (err) {
+      sendError(err)
       res.status(400).json(err);
     }
   });
@@ -156,6 +160,7 @@ router.get('/profile', withAuth, async (req, res) => {
             res.status(404).json({message:"No Matches Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
