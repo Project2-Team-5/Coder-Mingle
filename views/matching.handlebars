@@ -1,13 +1,11 @@
-<h1>See who you have connected!</h1>
-
-
+<div class="matchCardContainer">
 {{#each userList}}
-<a href="/profile?id={{userId}}">
-<div>
-    <img src="{{profile_pic}}" alt="User profile image {{fullname}}">
-</div>
-</a>
-<div>
-    {{fullname}}
-</div>
+    <a class="matchCard" href="/profile?id={{userId}}">
+
+   <h2 class="matchCardHeader">
+       {{fullname}}
+   </h2> 
+    <img class="rounded-0" src="{{profile_pic}}" alt="User profile image {{fullname}}">
+    </a>
 {{/each}}
+</div>
