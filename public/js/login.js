@@ -39,8 +39,8 @@ const signupFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        // TODO: redirect to survey page, profile is for testing purpose now
-        document.location.replace('/profile');
+
+        document.location.replace('/survey');
       } else {
         alert(response.statusText);
       }

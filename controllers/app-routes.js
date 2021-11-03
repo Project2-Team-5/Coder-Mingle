@@ -75,6 +75,7 @@ router.get('/profile', withAuth, async (req, res) => {
   res.render('homePage');
   })
 
+// Get & return survey data
   router.get('/survey', (req, res) => {
     if (req.session.logged_in) {
       res.render('survey');
