@@ -3,8 +3,6 @@
 
 <div class=" m-4 pl-4 pt-3 display-5">
 
-
-
 <p id="prof-name">{{user.first_name}}  {{user.last_name}} </p>
 
 <div class="box">
@@ -53,12 +51,10 @@
 {{/if}}
 
 {{#if selectedUserId}}
-<a class="edit-btn" href="/userimages">View Images</a>
+<a class="edit-btn" href="/userimages?id={{selectedUserId}}">View Images</a>
 {{else}}
 <a class="edit-btn" href="/userimages">View Images</a>
 {{/if}}
-</main>
-
 
 </main>
 </div>
