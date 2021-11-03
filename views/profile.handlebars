@@ -12,6 +12,11 @@
 
 <h3>Profile Photo</h3>
 <img src="{{user.survey.profile_pic}}"alr="personal photo">
+{{#if selectedUserId}}
+<a href="/userimages?id={{selectedUserId}}">View Images</a>
+{{else}}
+<a href="/userimages">View Images</a>
+{{/if}}
 
 
 <h3>Bio: </h3>
@@ -23,8 +28,10 @@
 <h3>Gender:</h3>
 <p> {{user.survey.gender}} </p>
 
+{{#if isSelf}}
 <h3>Birthday:</h3>
 <p> {{user.survey.birthdate}} </p>
+{{/if}}
 
 <h3>Preferred gender: </h3>
 <p>{{user.survey.pref_gender}} </p>
@@ -44,10 +51,10 @@
 <h3>Ideal date night would be: </h3>
 <p>{{user.survey.ideal_date}}</p>
 
+{{#if isSelf}}
 <a href="/profile/edit">Edit</a>
-<<<<<<< Updated upstream
-<a href="/userimages">View Images</a>
-=======
+{{else}}
+{{!-- add comment section here --}}
+{{/if}}
 
 </main>
->>>>>>> Stashed changes
