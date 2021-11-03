@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { User, Survey, Image } = require('../models');
+const { User, Survey, Image, Matched_With } = require('../models');
 const withAuth = require('../utils/auth');
+const getCurrentUserOrById = require('../utils/userUtil')
 
 // landing page, direct to login page if not login
 router.get('/', async (req, res) => {
@@ -11,26 +12,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-    try {
-      // Find the logged in user based on the session ID
-      const userData = await User.findByPk(req.session.user_id, {
-        attributes: { exclude: ['password'] },
-        include: [Survey,Image],
-      });      
-      
-      const user = userData.get({ plain: true });
-      console.log(user)
-      res.render('profile',{
-        user,
-        logged_in: req.session.logged_in
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
-
   router.get('/profile/edit', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
@@ -40,6 +21,7 @@ router.get('/profile', withAuth, async (req, res) => {
       });      
       
       const user = userData.get({ plain: true });
+      console.log(user)
       // render to handlebar "profileEdit"
       res.render('profileEdit',{
         user,
@@ -49,6 +31,29 @@ router.get('/profile', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  // Use withAuth middleware to prevent access to route
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    let userId = getCurrentUserOrById(req)
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(userId, {
+      attributes: { exclude: ['password'] },
+      include: [Survey,Image],
+    });      
+    
+    const user = userData.get({ plain: true });
+    res.render('profile',{
+      user,
+      logged_in: req.session.logged_in,
+      isSelf: userId === req.session.user_id,
+      selectedUserId: userId
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  
+  }
+});
 
   router.put('/profile', withAuth, async (req, res) => {
     try {
@@ -93,36 +98,67 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('login');
   });
 
-  router.get("/userimages",(req,res) => {
-    if(!req.session.logged_in) {
-      res.redirect("/login")
-      return
-    }
+  router.get("/userimages",withAuth, (req,res) => {
+    let userId = getCurrentUserOrById(req)
     Image.findAll({
       where: {
-        userId: req.session.user_id
+        userId: userId
       }
     }).then(imgData=>{
       const hbsImg = imgData.map(img=>img.get({plain:true}))
       res.render("userimages",{
-        img:hbsImg
+        img:hbsImg,
+        isSelf: userId === req.session.user_id
       })
     })
   })
 
-  router.get("/userimages/:id",(req,res)=>{
-    if(!req.session.logged_in) {
-      res.redirect("/login")
-    }
+  router.get("/userimages/:id", withAuth, (req,res)=>{
+    let userId = getCurrentUserOrById(req)
     Image.findByPk(req.params.id)
     .then(imgData=>{
       const hbsImg = imgData.get({plain:true})
       res.render("userimagesbyid",{
-        img:hbsImg
-      })
-    })
+        img:hbsImg,
+        isSelf: userId === imgData.userId
+      });
+    }); 
   })
 
+  router.get("/matching", (req,res)=>{
+    console.log(req.session.user_id)
+    User.findByPk( req.session.user_id, {
+        include:[{
+            model: User, through: Matched_With, as: "matched_with",        
+        }]
+    }).then(user=>{
+        if(user.matched_with.length){
+            let matchUserList = user.matched_with.map( async matchUser => {
+                let survey = await Survey.findByPk(matchUser.id)
+                let matchUserReturn = {
+                    profile_pic: survey.profile_pic,
+                    fullname: matchUser.first_name + ' ' + matchUser.last_name,
+                    userId: matchUser.id
+                }
+                // console.log(matchUserReturn);
+                return matchUserReturn;
+            })
+
+            Promise.all(matchUserList).then(result => { 
+              res.render("matching",{
+                  userList: result,
+                })
+              }
+            )
+        }
+        else {
+            res.status(404).json({message:"No Matches Found"})
+        }
+    }).catch(err=>{
+        console.log(err)
+        res.status(500).json({message:"An Error Occured",err:err})
+    })
+})
 
 
   module.exports = router;
