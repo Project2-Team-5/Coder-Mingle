@@ -3,16 +3,45 @@ const sequelize = require('../config/connection');
 
 class Main extends Model {}
 
-LaCroix.init({
+Main.init({
     // add properites here, ex:
-    flavor: {
-         type: DataTypes.STRING,
-         unique:true
+    first_name: {
+        type: DataTypes.STRING
     },
-    image: {
+    last_name: {
+        type: DataTypes.STRING
+    },
+    gender: {
         type: DataTypes.STRING,
-        unique:true
-   }
+        allowNull: true
+    },
+    pref_gender: {
+        type: DataTypes.STRING,
+        allowNull: true
+   },
+   relationship: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    goal: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    language: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    worker: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    ideal_date: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    profile_pic: {
+        type: DataTypes.TEXT
+    },
 },{
     sequelize
 });

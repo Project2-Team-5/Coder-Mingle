@@ -99,6 +99,17 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('login');
   });
 
+  // Get survey data, return to main
+  router.get("/users",(req,res)=>{
+    userData.findAll().then(userData=>{
+        console.log(userData)
+        console.log("=================")
+        const allUserData = userData.map(item=>item.get({plain:true}))
+        console.log(allUserData)
+        return res.render("./main")
+    })
+})
+
   router.get("/userimages",withAuth, (req,res) => {
     let userId = getCurrentUserOrById(req)
     Image.findAll({

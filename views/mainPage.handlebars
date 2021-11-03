@@ -1,0 +1,12 @@
+<h1 class="pageHeader">Main testing page</h1>
+<div class="cardContainer">
+    {{#each }}
+    <a class="card" href="/flavors/{{id}}">
+
+        <h3>{{gender, pref_gender, bio, relationship, goal, language, worker, ideal_date}}</h3>
+        <img src="{{image}}" alt="{{flavor}}">
+
+    </a>
+    {{/each}}
+
+</div>

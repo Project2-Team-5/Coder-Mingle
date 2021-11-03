@@ -12,9 +12,7 @@ const surveyFormHandler = async (event) => {
     const workerType = document.querySelector('input[name=worker_type]:checked').value;
     const idealDate = document.querySelector('input[name=ideal_date]:checked').value;
 
-    console.log(language)
     
-
     if (genderPref && gender && datingFor && relationshipType && programmerType && language && birthdate && workerType && idealDate) {
       // Send a POST request to the API endpoint
       const surveyResponse = await fetch('/api/users/survey', {
