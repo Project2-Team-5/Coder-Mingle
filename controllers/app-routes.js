@@ -81,7 +81,7 @@ router.get('/profile', withAuth, async (req, res) => {
   });
   
   router.get('/', (req, res) => {
-  res.render('homePage');
+  res.render('homepage');
   })
 
 // Get & return survey data
