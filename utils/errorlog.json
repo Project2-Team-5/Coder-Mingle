@@ -2,5 +2,9 @@
     {
         "date": 1635973339854,
         "error": "This is a test error!"
+    },
+    {
+        "date": 1635976170234,
+        "error": {}
     }
 ]

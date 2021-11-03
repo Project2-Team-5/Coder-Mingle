@@ -113,7 +113,7 @@ router.get('/profile', withAuth, async (req, res) => {
       const hbsImg = imgData.map(img=>img.get({plain:true}))
       res.render("userimages",{
         img:hbsImg,
-        isSelf: userId === req.session.user_id
+        isSelf: userId == req.session.user_id
       })
     })
   })
@@ -125,7 +125,7 @@ router.get('/profile', withAuth, async (req, res) => {
       const hbsImg = imgData.get({plain:true})
       res.render("userimagesbyid",{
         img:hbsImg,
-        isSelf: userId === imgData.userId
+        isSelf: userId == imgData.userId
       });
     }); 
   })

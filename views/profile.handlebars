@@ -12,12 +12,6 @@
 
 <h3>Profile Photo</h3>
 <img src="{{user.survey.profile_pic}}"alr="personal photo">
-{{#if selectedUserId}}
-<a href="/userimages?id={{selectedUserId}}">View Images</a>
-{{else}}
-<a href="/userimages">View Images</a>
-{{/if}}
-
 
 <h3>Bio: </h3>
 <p>{{user.survey.bio}}</p>
@@ -53,9 +47,14 @@
 
 {{#if isSelf}}
 <a href="/profile/edit">Edit</a>
-<a href="/userimages">View Images</a>
 {{else}}
 {{!-- add comment section here --}}
+{{/if}}
+
+{{#if selectedUserId}}
+<a href="/userimages?id={{selectedUserId}}">View Images</a>
+{{else}}
+<a href="/userimages">View Images</a>
 {{/if}}
 
 </main>
