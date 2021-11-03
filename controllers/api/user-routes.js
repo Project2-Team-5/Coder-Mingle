@@ -38,7 +38,30 @@ router.post('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
-  
+
+// Create survey
+router.post('/survey', async (req, res) => {
+  try {
+    const userData = await Survey.create({
+      userId: req.session.user_id,
+      gender: req.session.gender,
+      pref_gender: req.body.genderPref, 
+      dating_for: req.body.datingFor,
+      relationship_type: req.body.relationshipType,
+      language: req.body.language,
+      birthdate: req.body.birthdate,
+      programmer_type: req.body.programmerType,
+      worker_type: req.body.workerType,
+      ideal_date: req.body.idealDate
+    })
+    console.log(userData)
+    res.json(userData)
+  } 
+  catch(err) {
+    console.log(err)
+  }
+})
+
 // login an existing user
   router.post('/login', async (req, res) => {
     try {

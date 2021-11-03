@@ -5,22 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODER MINGLE</title>
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
-
-<body>
-    <header>
-        <h1>CODER MINGLE</h1>
-    </header>
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{/if}}
-    {{{ body }}}
-
+<header>
     <!-- Render script for logged in users only -->
+        <a class="title" href="homepage">Cinder</a>
+</header>
+<navbar class="navbar">
+   <nav class="navbar navbar-expand-lg navbar-light mx-auto">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/main">Main</a>
+    <a class="navbar-brand" href="/profile">Profile</a>
+    <a class="navbar-brand" href="/matching">Matching</a>
+    {{#if logged_in}}
+        <button class="btn" id="logout">Logout</button>
+        {{/if}}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </div>
+  </div>
+</nav>
+</navbar>
+  
+<body>
+ {{{ body }}}
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
 </body>
+
 </html>

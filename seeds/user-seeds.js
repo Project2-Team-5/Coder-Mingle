@@ -1,5 +1,7 @@
-const {User} = require("../models")
+const {User, Survey} = require("../models")
 
+
+//TODO: (CH) Add surveyData to userData
 const userData = [
     {
         first_name: "Viriato",
