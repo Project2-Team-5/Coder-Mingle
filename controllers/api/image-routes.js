@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User,Image,Survey} = require("../../models")
+const sendError = require("../../utils/mail-settings.js")
 
 // Shows all the images by user
 router.get("/",(req,res)=>{
@@ -13,6 +14,7 @@ router.get("/",(req,res)=>{
             res.status(404).json({message:"No Matches Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -30,6 +32,7 @@ router.post("/",(req,res)=>{
     }).then(newImg=>{
         res.json(newImg)
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -53,6 +56,7 @@ router.put("/",(req,res)=>{
     ).then(updateImg=>{
         res.json(updateImg)
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -71,6 +75,7 @@ router.delete("/",(req,res)=>{
     }).then(delImg=>{
         res.json(delImg)
     }).catch(err=>{
+        sendError(err)
         consol.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })

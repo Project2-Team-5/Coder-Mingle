@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const {Main, User} = require('../../models');
+const sendError = require("../../utils/mail-settings.js")
 
 router.get("/",(req,res)=>{
     User.findAll().then(userData=>{
         res.json(userData)
     }).catch(err=>{
+        sendError(err)
         console.log(err);
         res.status(500).json({err})
     })
@@ -19,6 +21,7 @@ router.get("/:id",(req,res)=>{
             res.status(404).json({err:"no user found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err);
         res.status(500).json({err})
     })
@@ -31,6 +34,7 @@ router.post("/",(req,res)=>{
     }).then(newLacroix=>{
         res.json(newLacroix)
     }).catch(err=>{
+        sendError(err)
         console.log(err);
         res.status(500).json({err})
     })

@@ -1,6 +1,6 @@
 const router = require('express').Router();
-
 const {User,Post,Survey} = require("../../models")
+const sendError = require("../../utils/mail-settings.js")
 
 router.get("/",(req,res) => {
     User.findAll({
@@ -13,6 +13,7 @@ router.get("/",(req,res) => {
             res.status(404).json({message:"No Users Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -35,6 +36,7 @@ router.post('/', async (req, res) => {
         res.status(200).json(userData);
       });
     } catch (err) {
+      sendError(err)
       res.status(400).json(err);
     }
   });
@@ -58,6 +60,7 @@ router.post('/survey', async (req, res) => {
     res.json(userData)
   } 
   catch(err) {
+    sendError(err)
     console.log(err)
   }
 })
@@ -91,6 +94,7 @@ router.post('/survey', async (req, res) => {
       });
   
     } catch (err) {
+      sendError(err)
       res.status(400).json(err);
     }
   });
