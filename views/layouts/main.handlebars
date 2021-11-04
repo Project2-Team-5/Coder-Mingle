@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<header>
+
     <!-- Render script for logged in users only -->
-</header>
+{{#if logged_in}}
 <navbar class="navbar">
    
         {{!-- <div class="title mx-auto"> Coder Mingle --}}
@@ -29,6 +29,7 @@
 </navbar>
   
         </div> 
+        {{/if}}
 <body>
  {{{ body }}}
     {{#if logged_in}}
