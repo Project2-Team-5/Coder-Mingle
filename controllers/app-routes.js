@@ -95,6 +95,16 @@ router.get('/profile', withAuth, async (req, res) => {
       res.render('survey');
   });
 
+// Get & return survey data to main page
+router.get('/main', (req, res) => {
+  if (req.session.logged_in) {
+    res.render('main');
+    return;
+  }
+
+  res.render('login');
+});
+
   router.get('/login', (req, res) => {
     if (req.session.logged_in) {
       res.redirect('/profile');
@@ -103,6 +113,7 @@ router.get('/profile', withAuth, async (req, res) => {
   
     res.render('login');
   });
+
 
   router.get("/userimages",withAuth, (req,res) => {
     let userId = getCurrentUserOrById(req)

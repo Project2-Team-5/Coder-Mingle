@@ -13,7 +13,6 @@ const surveyFormHandler = async (event) => {
     const idealDate = document.querySelector('input[name=ideal_date]:checked').value;
     const bio = document.querySelector('textarea[name=bio]').value;
 
-    console.log(language)
     
 
     if (bio && genderPref && gender && datingFor && relationshipType && programmerType && language && birthdate && workerType && idealDate) {
