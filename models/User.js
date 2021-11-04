@@ -35,6 +35,48 @@ User.init({
         allowNull: false,
         validate:{
             len:[8]
+    },
+    gender: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    pref_gender: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    bio: { 
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    relationship: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    goal: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    language: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    worker: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    ideal_date: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+    programmer_type: {
+        type: DataTypes.TEXT
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model:"user",
+            key: "id",
+            }
         }
     }
 },

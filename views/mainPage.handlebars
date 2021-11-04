@@ -1,0 +1,20 @@
+<h1 class="pageHeader">This is a main page</h1>
+{{#each users as |user|}}
+{{> survey-details}}
+<div class="card" style="width: 18rem;">
+  <img src="{{user.survey.profile_pic}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5>{{user.first_name}} {{user.last_name}}</h5>
+    <p class="card-text">Bio: {{user.survey.bio}}</p>
+    <p class="card-text">Birthdate: {{user.survey.birthdate}}</p>
+    <p class="card-text">Gender: {{user.survey.gender}}</p>
+    <p class="card-text">Desired Relationship: {{user.survey.relationship}}</p>
+    <p class="card-text">Work Ethic: {{user.survey.worker}}</p>
+    <p class="card-text">Dating Goal: {{user.survey.goal}}</p>
+    <p class="card-text">Ideal Date: {{user.survey.ideal_date}}</p>
+    <p class="card-text">Programmer Type {{user.survey.programmer_type}}</p>
+    <p class="card-text">Favorite Language {{user.survey.fav_langauge}}</p>
+    <a href="#" class="btn btn-primary">Button Somewhere</a>
+  </div>
+</div>
+{{/each}}

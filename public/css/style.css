@@ -61,6 +61,17 @@ nav a:hover {
 background-color:var(--secondaryBlue);
 }
 
+
+.user {
+  flex: 4;
+  background-color: #fff;
+  padding: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 #homepage {
 display: flex;
 flex-direction: column;
@@ -192,6 +203,14 @@ p {
   margin: 0 auto;
 }
 
+.card {
+  margin: 20px;
+  flex: 0 1 300px;
+  border: 7px double var(--dark);
+  border-radius: 10px;
+  background-color: var(--light);
+  color: var(--dark);
+}
 
 .matchCard {
   width: 100%;
