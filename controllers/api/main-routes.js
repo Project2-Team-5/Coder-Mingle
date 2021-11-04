@@ -1,80 +1,78 @@
-const express = require('express');
-const router = express.Router();
-const {Main, User} = require('../../models');
-const sendError = require("../../utils/mail-settings.js")
+const router = require('express').Router();
+const {Survey} = require('../../models');
 
-router.get("/",(req,res)=>{
-    User.findAll().then(userData=>{
-        res.json(userData)
-    }).catch(err=>{
-        sendError(err)
-        console.log(err);
-        res.status(500).json({err})
-    })
-})
+// This is test code
+router.get('/main', async (req, res) => {
+  try {
+    const dbSurveyData = await Survey.findAll({
+      include: [
+        {
+          model: Survey,
+          attributes: ['first_name', 'last_name', 'birthdate', 'gender', 'pref_gender', 'bio', 'relationship', 'goal', 'language', 'worker', 'ideal_date', 'profile_pic', 'prorammer_type'],
+        },
+      ],
+    });
 
-router.get("/:id",(req,res)=>{
-    User.findByPk(req.params.id).then(singleUser=>{
-        if(singleUser){
-            res.json(singleUser)
-        } else {
-            res.status(404).json({err:"no user found"})
-        }
-    }).catch(err=>{
-        sendError(err)
-        console.log(err);
-        res.status(500).json({err})
-    })
-})
+    const surveys = dbSurveyData.map((survey) =>
+      survey.get({ plain: true })
+    );
 
-router.post("/",(req,res)=>{
-    User.create({
-        flavor:req.body.flavor,
-        image:req.body.image
-    }).then(newLacroix=>{
-        res.json(newLacroix)
-    }).catch(err=>{
-        sendError(err)
-        console.log(err);
-        res.status(500).json({err})
-    })
-})
+    res.render('main', {
+      surveys,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-// GET all users for homepage. Code in progress
-router.get('/', async (req, res) => {
+// GET one survey response
+router.get('/survey/:id', async (req, res) => {
+  // If the user is not logged in, redirect the user to the login page
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+  } else {
+    // If the user is logged in, allow them to view the gallery
     try {
-      const dbSurveyData = await User.findAll({
+      const dbSurveyData = await Survey.findByPk(req.params.id, {
         include: [
           {
             model: Survey,
-            attributes: ['first_name', 'last_name', 'gender', 'birthdate', 'worker', 'language', 'relationship', 'goal', 'ideal_date'],
+            attributes: [
+              'first_name', 
+              'last_name',
+              'birthdate',
+              'gender',
+              'pref_gender',
+              'bio',
+              'relationship',
+              'goal',
+              'language',
+              'worker',
+              'ideal_date',
+              'profile_pic',
+              'prorammer_type'
+            ],
           },
         ],
       });
-  
-      const allUsers = dbSurveyData.map((user) =>
-        user.get({ plain: true })
-      );
-  
-      res.render('main', {
-        allUsers,
-        loggedIn: req.session.loggedIn,
-      });
+      const survey = dbSurveyData.get({ plain: true });
+      res.render('survey', { survey, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
-  });
+  }
+});
 
-  router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-  
-    res.render('login');
-  });
-  
-  module.exports = router;
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
 
 module.exports = router;
