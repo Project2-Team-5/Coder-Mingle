@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Survey, Image, Matched_With } = require('../models');
 const withAuth = require('../utils/auth');
-const getCurrentUserOrById = require('../utils/userUtil')
+const getCurrentUserOrById = require('../utils/userUtil');
 
 // landing page, direct to login page if not login
 router.get('/', async (req, res) => {
@@ -90,6 +90,16 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('login');
   });
 
+// Get & return survey data to main page
+router.get('/main', (req, res) => {
+  if (req.session.logged_in) {
+    res.render('main');
+    return;
+  }
+
+  res.render('login');
+});
+
   router.get('/login', (req, res) => {
     if (req.session.logged_in) {
       res.redirect('/profile');
@@ -99,16 +109,6 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('login');
   });
 
-  // Get survey data, return to main
-  router.get("/users",(req,res)=>{
-    userData.findAll().then(userData=>{
-        console.log(userData)
-        console.log("=================")
-        const allUserData = userData.map(item=>item.get({plain:true}))
-        console.log(allUserData)
-        return res.render("./main")
-    })
-})
 
   router.get("/userimages",withAuth, (req,res) => {
     let userId = getCurrentUserOrById(req)
