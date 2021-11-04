@@ -1,13 +1,15 @@
 <profile class="profile">
 
 
-<div class=" m-4 pl-4 pt-3 display-5">
+<div class="profPage">
 
+<div class="profCardContainer">
 <p id="prof-name">{{user.first_name}}  {{user.last_name}} </p>
 
 <div class="box">
 <img src="{{user.survey.profile_pic}}"alr="personal photo:">
 </div>
+
 
 
 <br>
@@ -37,16 +39,14 @@
 <h3>Working style: </h3>
 <p>{{user.survey.worker}}</p>
 
-<h3>Type of programmer: </h3>
-<p>{{user.survey.programmer_type}}</p>
-
 <h3>Preferred language: </h3>
 <p>{{user.survey.language}}</p>
 
 <h3 class=>Ideal date night: </h3>
-<p>{{user.survey.ideal_date}}</p>
+<p class="pb-4">{{user.survey.ideal_date}}</p>
 </test>
 
+</div>
 {{#if isSelf}}
 <a class="edit-btn" href="/profile/edit">Edit</a>
 {{else}}
@@ -54,9 +54,9 @@
 {{/if}}
 
 {{#if selectedUserId}}
-<a class="edit-btn" href="/userimages?id={{selectedUserId}}">View Albums</a>
+<a class="edit-btn" href="/userimages?id={{selectedUserId}}">View Images</a>
 {{else}}
-<a class="edit-btn" href="/userimages">View Albums</a>
+<a class="edit-btn" href="/userimages">View Images</a>
 {{/if}}
 
 </main>

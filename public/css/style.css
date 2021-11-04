@@ -7,58 +7,99 @@
 }
 
 * {
-background-color: rgb(231, 239, 239);
-font-family: sans-serif;
+  background-color: rgb(231, 239, 239);
+  font-family: sans-serif;
 }
 
-.title {
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 40px;
-font-weight: bold;
-text-decoration: none;
-color: rgb(255, 255, 255);
-
-background-image: linear-gradient(
-  to bottom right,
-  #4d19eb 0%,
-  #0ff0fc 40%,
-  #daa8eb 60%,
-  #9d00ff 100%
-);
-background-size: 200% 200%;
-animation: movingGradient 5s linear infinite alternate;
-}
-@keyframes movingGradient {
-from {
-  background-position: 0 0;
-}
-to {
-  background-position: 100% 100%;
-}
+body {
+  background-image: radial-gradient(
+    rgb(0, 255, 174) 0%, rgb(37, 20, 220) 40%, rgb(255, 119, 0) 60%, rgb(252, 140, 248) 100%
+  )
 }
 
 header a:hover {
-  opacity:90%;
-text-decoration: none;
+  background-color:rgb(0, 221, 255);
+  text-decoration: none;
 }
 
-nav {
-display: flex;
-font-size: 20px;
+.navbar {
+  padding-top: 10px;
+  margin-top: 0%;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content:space-between;
+  background-image: linear-gradient(
+    to bottom right,
+    #4d19eb 0%,
+    #0ff0fc 40%,
+    #daa8eb 60%,
+    #9d00ff 100%
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 8s linear infinite alternate;
+  }
+  @keyframes movingGradient {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 100%;
+    }
+    
+  }
+  
+  .title {
+  display: flex;
+  justify-content: flex-start;
+
+  font-size: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  margin-bottom: 0px;
+  background-color: transparent;
+  }
+  
+  nav {
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+
+  }
+  
+  nav a {
+text-decoration: none;
+
+
+}
+
+
+.navbar-brand {
+  background-color: transparent;
+  border: transparent;
+  color:white;
+  display:flex;
+  font-size: 25px;
+  font-weight: bold;
+  
+}
+
+.navbar-brand a:hover {
+  background-color:rgb(0, 221, 255);
+}
+
+.logout-btn {
+  font-size: 25px;
 font-weight: bold;
-}
-
-nav a {
-padding: 14px 20px;
 text-decoration: none;
-text-align: center;
-color: var(--primaryBlue)
+border:none;
+background-color: transparent;
+
+color:white;
 }
 
-nav a:hover {
-background-color:var(--secondaryBlue);
+.logout-btn:hover {
+background-color:rgb(0, 221, 255);
 }
 
 #homepage {
@@ -82,18 +123,6 @@ font-size: 50px;
 font-size: 45px;
 }
 
-.logout-btn {
-  font-size: 20px;
-font-weight: bold;
-text-decoration: none;
-border:none;
-padding: 14px 20px;
-text-align: center;
-}
-
-.logout-btn:hover {
-background-color: var(--secondaryBlue);
-}
 
 /* .spinner {
 height: 36px;
@@ -155,8 +184,8 @@ animation: flip 2s linear infinite;
   
 }
 .box > img {
-  width: 100%;
-  height:100%;
+  width: 60%;
+  height: 450px;
   align-items: center;
   border-radius: 8%;
 
@@ -166,6 +195,21 @@ img {
   width:100%;
   height:100%;
   align-items: center;
+}
+
+.profPage {
+  margin: 80px;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+padding-right: 5px;
+padding-top: 40px;
+}
+
+.profCardContainer {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-radius: 50%;
 }
 
 #prof-name {
@@ -221,4 +265,3 @@ a.matchCard {
   background-color: #d6d3f7;
   
 }
-

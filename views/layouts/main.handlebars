@@ -1,6 +1,6 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,30 +9,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<header>
-    <!-- Render script for logged in users only -->
-    <p class="title"> Coder Mingle</p>
-</header>
 
+    <!-- Render script for logged in users only -->
 {{#if logged_in}}
 <navbar class="navbar">
-    <nav class="navbar navbar-expand-lg navbar-light mx-auto">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/main">Main</a>
-            <a class="navbar-brand" href="/profile">Profile</a>
-            <a class="navbar-brand" href="/matching">Matching</a>
-            <button class="logout-btn" id="logout">Logout</button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            </div>
-        </div>
-    </nav>
+   
+        {{!-- <div class="title mx-auto"> Coder Mingle --}}
+            <h3 class="title">Coder Mingle</h3>
+    <a class="navbar-brand" href="/main">Main</a>
+    <a class="navbar-brand" href="/profile">Profile</a>
+    <a class="navbar-brand" href="/matching">Matching</a>
+    {{#if logged_in}}
+        <button class="logout-btn" id="logout">Logout</button>
+        {{/if}}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    </div>
+  </div>
+</nav>
 </navbar>
-{{/if}}
+  
+        </div> 
+        {{/if}}
 <body>
-    {{{ body }}}
+ {{{ body }}}
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
 </body>
 
 </html>
+
