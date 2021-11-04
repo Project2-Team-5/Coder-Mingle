@@ -45,6 +45,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });      
     
     const user = userData.get({ plain: true });
+    console.log(user)
     res.render('profile',{
       user,
       logged_in: req.session.logged_in,
@@ -81,7 +82,7 @@ router.get('/profile', withAuth, async (req, res) => {
   });
   
   router.get('/', (req, res) => {
-  res.render('homePage');
+  res.render('homepage');
   })
 
 // Get & return survey data
@@ -113,7 +114,7 @@ router.get('/profile', withAuth, async (req, res) => {
       const hbsImg = imgData.map(img=>img.get({plain:true}))
       res.render("userimages",{
         img:hbsImg,
-        isSelf: userId === req.session.user_id
+        isSelf: userId == req.session.user_id
       })
     })
   })
@@ -125,7 +126,7 @@ router.get('/profile', withAuth, async (req, res) => {
       const hbsImg = imgData.get({plain:true})
       res.render("userimagesbyid",{
         img:hbsImg,
-        isSelf: userId === imgData.userId
+        isSelf: userId == imgData.userId
       });
     }); 
   })

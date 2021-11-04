@@ -18,7 +18,7 @@ Survey.init({
         type: DataTypes.STRING,
         allowNull: true
     },
-    bio: {
+    bio: { 
         type: DataTypes.TEXT,
         allowNull: true
     },
