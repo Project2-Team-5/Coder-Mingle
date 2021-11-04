@@ -45,6 +45,9 @@ Survey.init({
     profile_pic: {
         type: DataTypes.TEXT
     },
+    programmer_type: {
+        type: DataTypes.TEXT
+    },
     user_id: {
         type: DataTypes.INTEGER,
         references: {

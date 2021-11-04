@@ -26,7 +26,12 @@ router.get('/', async (req, res) => {
       // render to handlebar "profileEdit"
       res.render('profileEdit',{
         user,
-        logged_in: req.session.logged_in
+        logged_in: req.session.logged_in,
+        helpers: {
+          radioBtnHelper: function (currentValue, selectedValue) { 
+            return currentValue == selectedValue ? "checked" : ""
+          }
+        }
       });
     } catch (err) {
       sendError(err)
@@ -86,13 +91,8 @@ router.get('/profile', withAuth, async (req, res) => {
   })
 
 // Get & return survey data
-  router.get('/survey', (req, res) => {
-    if (req.session.logged_in) {
+  router.get('/survey', withAuth, (req, res) => {
       res.render('survey');
-      return;
-    }
-  
-    res.render('login');
   });
 
   router.get('/login', (req, res) => {
@@ -131,8 +131,8 @@ router.get('/profile', withAuth, async (req, res) => {
     }); 
   })
 
-  router.get("/matching", (req,res)=>{
-    console.log(req.session.user_id)
+  router.get("/matching", withAuth, (req,res)=>{
+
     User.findByPk( req.session.user_id, {
         include:[{
             model: User, through: Matched_With, as: "matched_with",        
@@ -152,6 +152,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
             Promise.all(matchUserList).then(result => { 
               res.render("matching",{
+                  logged_in: req.session.logged_in,
                   userList: result,
                 })
               }
