@@ -18,7 +18,7 @@ Survey.init({
         type: DataTypes.STRING,
         allowNull: true
     },
-    bio: {
+    bio: { 
         type: DataTypes.TEXT,
         allowNull: true
     },
@@ -43,6 +43,9 @@ Survey.init({
         allowNull: true
     },
     profile_pic: {
+        type: DataTypes.TEXT
+    },
+    programmer_type: {
         type: DataTypes.TEXT
     },
     user_id: {

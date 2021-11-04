@@ -1,0 +1,100 @@
+[
+    {
+        "date": 1635973339854,
+        "error": "This is a test error!"
+    },
+    {
+        "date": 1635976170234,
+        "error": {}
+    },
+    {
+        "date": 1635980810217,
+        "error": {
+            "name": "SequelizeValidationError",
+            "errors": [
+                {
+                    "message": "Validation isEmail on email failed",
+                    "type": "Validation error",
+                    "path": "email",
+                    "value": "dfgdf",
+                    "origin": "FUNCTION",
+                    "instance": {
+                        "id": null,
+                        "first_name": "gdf",
+                        "last_name": "gdfgdfg",
+                        "username": "gdfgdfg",
+                        "email": "dfgdf",
+                        "password": "gdfgdfgdfgdfgd"
+                    },
+                    "validatorKey": "isEmail",
+                    "validatorName": "isEmail",
+                    "validatorArgs": [
+                        {
+                            "allow_display_name": false,
+                            "require_display_name": false,
+                            "allow_utf8_local_part": true,
+                            "require_tld": true,
+                            "blacklisted_chars": "",
+                            "ignore_max_length": false
+                        }
+                    ],
+                    "original": {
+                        "validatorName": "isEmail",
+                        "validatorArgs": [
+                            {
+                                "allow_display_name": false,
+                                "require_display_name": false,
+                                "allow_utf8_local_part": true,
+                                "require_tld": true,
+                                "blacklisted_chars": "",
+                                "ignore_max_length": false
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "date": 1636006158431,
+        "error": {
+            "name": "SequelizeDatabaseError",
+            "parent": {
+                "code": "ER_BAD_FIELD_ERROR",
+                "errno": 1054,
+                "sqlState": "42S22",
+                "sqlMessage": "Unknown column 'survey.programer_type' in 'field list'",
+                "sql": "SELECT `user`.`id`, `user`.`first_name`, `user`.`last_name`, `user`.`username`, `user`.`email`, `survey`.`id` AS `survey.id`, `survey`.`birthdate` AS `survey.birthdate`, `survey`.`gender` AS `survey.gender`, `survey`.`pref_gender` AS `survey.pref_gender`, `survey`.`bio` AS `survey.bio`, `survey`.`relationship` AS `survey.relationship`, `survey`.`goal` AS `survey.goal`, `survey`.`language` AS `survey.language`, `survey`.`worker` AS `survey.worker`, `survey`.`ideal_date` AS `survey.ideal_date`, `survey`.`profile_pic` AS `survey.profile_pic`, `survey`.`programer_type` AS `survey.programer_type`, `survey`.`user_id` AS `survey.user_id`, `survey`.`user_id` AS `survey.userId`, `Images`.`id` AS `Images.id`, `Images`.`url` AS `Images.url`, `Images`.`userId` AS `Images.userId` FROM `user` AS `user` LEFT OUTER JOIN `survey` AS `survey` ON `user`.`id` = `survey`.`user_id` LEFT OUTER JOIN `Images` AS `Images` ON `user`.`id` = `Images`.`userId` WHERE `user`.`id` = 1;"
+            },
+            "original": {
+                "code": "ER_BAD_FIELD_ERROR",
+                "errno": 1054,
+                "sqlState": "42S22",
+                "sqlMessage": "Unknown column 'survey.programer_type' in 'field list'",
+                "sql": "SELECT `user`.`id`, `user`.`first_name`, `user`.`last_name`, `user`.`username`, `user`.`email`, `survey`.`id` AS `survey.id`, `survey`.`birthdate` AS `survey.birthdate`, `survey`.`gender` AS `survey.gender`, `survey`.`pref_gender` AS `survey.pref_gender`, `survey`.`bio` AS `survey.bio`, `survey`.`relationship` AS `survey.relationship`, `survey`.`goal` AS `survey.goal`, `survey`.`language` AS `survey.language`, `survey`.`worker` AS `survey.worker`, `survey`.`ideal_date` AS `survey.ideal_date`, `survey`.`profile_pic` AS `survey.profile_pic`, `survey`.`programer_type` AS `survey.programer_type`, `survey`.`user_id` AS `survey.user_id`, `survey`.`user_id` AS `survey.userId`, `Images`.`id` AS `Images.id`, `Images`.`url` AS `Images.url`, `Images`.`userId` AS `Images.userId` FROM `user` AS `user` LEFT OUTER JOIN `survey` AS `survey` ON `user`.`id` = `survey`.`user_id` LEFT OUTER JOIN `Images` AS `Images` ON `user`.`id` = `Images`.`userId` WHERE `user`.`id` = 1;"
+            },
+            "sql": "SELECT `user`.`id`, `user`.`first_name`, `user`.`last_name`, `user`.`username`, `user`.`email`, `survey`.`id` AS `survey.id`, `survey`.`birthdate` AS `survey.birthdate`, `survey`.`gender` AS `survey.gender`, `survey`.`pref_gender` AS `survey.pref_gender`, `survey`.`bio` AS `survey.bio`, `survey`.`relationship` AS `survey.relationship`, `survey`.`goal` AS `survey.goal`, `survey`.`language` AS `survey.language`, `survey`.`worker` AS `survey.worker`, `survey`.`ideal_date` AS `survey.ideal_date`, `survey`.`profile_pic` AS `survey.profile_pic`, `survey`.`programer_type` AS `survey.programer_type`, `survey`.`user_id` AS `survey.user_id`, `survey`.`user_id` AS `survey.userId`, `Images`.`id` AS `Images.id`, `Images`.`url` AS `Images.url`, `Images`.`userId` AS `Images.userId` FROM `user` AS `user` LEFT OUTER JOIN `survey` AS `survey` ON `user`.`id` = `survey`.`user_id` LEFT OUTER JOIN `Images` AS `Images` ON `user`.`id` = `Images`.`userId` WHERE `user`.`id` = 1;"
+        }
+    },
+    {
+        "date": 1636006164601,
+        "error": {
+            "name": "SequelizeDatabaseError",
+            "parent": {
+                "code": "ER_BAD_FIELD_ERROR",
+                "errno": 1054,
+                "sqlState": "42S22",
+                "sqlMessage": "Unknown column 'survey.programer_type' in 'field list'",
+                "sql": "SELECT `user`.`id`, `user`.`first_name`, `user`.`last_name`, `user`.`username`, `user`.`email`, `survey`.`id` AS `survey.id`, `survey`.`birthdate` AS `survey.birthdate`, `survey`.`gender` AS `survey.gender`, `survey`.`pref_gender` AS `survey.pref_gender`, `survey`.`bio` AS `survey.bio`, `survey`.`relationship` AS `survey.relationship`, `survey`.`goal` AS `survey.goal`, `survey`.`language` AS `survey.language`, `survey`.`worker` AS `survey.worker`, `survey`.`ideal_date` AS `survey.ideal_date`, `survey`.`profile_pic` AS `survey.profile_pic`, `survey`.`programer_type` AS `survey.programer_type`, `survey`.`user_id` AS `survey.user_id`, `survey`.`user_id` AS `survey.userId`, `Images`.`id` AS `Images.id`, `Images`.`url` AS `Images.url`, `Images`.`userId` AS `Images.userId` FROM `user` AS `user` LEFT OUTER JOIN `survey` AS `survey` ON `user`.`id` = `survey`.`user_id` LEFT OUTER JOIN `Images` AS `Images` ON `user`.`id` = `Images`.`userId` WHERE `user`.`id` = 1;"
+            },
+            "original": {
+                "code": "ER_BAD_FIELD_ERROR",
+                "errno": 1054,
+                "sqlState": "42S22",
+                "sqlMessage": "Unknown column 'survey.programer_type' in 'field list'",
+                "sql": "SELECT `user`.`id`, `user`.`first_name`, `user`.`last_name`, `user`.`username`, `user`.`email`, `survey`.`id` AS `survey.id`, `survey`.`birthdate` AS `survey.birthdate`, `survey`.`gender` AS `survey.gender`, `survey`.`pref_gender` AS `survey.pref_gender`, `survey`.`bio` AS `survey.bio`, `survey`.`relationship` AS `survey.relationship`, `survey`.`goal` AS `survey.goal`, `survey`.`language` AS `survey.language`, `survey`.`worker` AS `survey.worker`, `survey`.`ideal_date` AS `survey.ideal_date`, `survey`.`profile_pic` AS `survey.profile_pic`, `survey`.`programer_type` AS `survey.programer_type`, `survey`.`user_id` AS `survey.user_id`, `survey`.`user_id` AS `survey.userId`, `Images`.`id` AS `Images.id`, `Images`.`url` AS `Images.url`, `Images`.`userId` AS `Images.userId` FROM `user` AS `user` LEFT OUTER JOIN `survey` AS `survey` ON `user`.`id` = `survey`.`user_id` LEFT OUTER JOIN `Images` AS `Images` ON `user`.`id` = `Images`.`userId` WHERE `user`.`id` = 1;"
+            },
+            "sql": "SELECT `user`.`id`, `user`.`first_name`, `user`.`last_name`, `user`.`username`, `user`.`email`, `survey`.`id` AS `survey.id`, `survey`.`birthdate` AS `survey.birthdate`, `survey`.`gender` AS `survey.gender`, `survey`.`pref_gender` AS `survey.pref_gender`, `survey`.`bio` AS `survey.bio`, `survey`.`relationship` AS `survey.relationship`, `survey`.`goal` AS `survey.goal`, `survey`.`language` AS `survey.language`, `survey`.`worker` AS `survey.worker`, `survey`.`ideal_date` AS `survey.ideal_date`, `survey`.`profile_pic` AS `survey.profile_pic`, `survey`.`programer_type` AS `survey.programer_type`, `survey`.`user_id` AS `survey.user_id`, `survey`.`user_id` AS `survey.userId`, `Images`.`id` AS `Images.id`, `Images`.`url` AS `Images.url`, `Images`.`userId` AS `Images.userId` FROM `user` AS `user` LEFT OUTER JOIN `survey` AS `survey` ON `user`.`id` = `survey`.`user_id` LEFT OUTER JOIN `Images` AS `Images` ON `user`.`id` = `Images`.`userId` WHERE `user`.`id` = 1;"
+        }
+    }
+]

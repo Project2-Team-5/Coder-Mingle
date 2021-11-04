@@ -1,6 +1,6 @@
 const router = require('express').Router();
-
 const {User,Post,Survey} = require("../../models")
+const sendError = require("../../utils/mail-settings.js")
 
 router.get("/",(req,res) => {
     User.findAll({
@@ -13,6 +13,7 @@ router.get("/",(req,res) => {
             res.status(404).json({message:"No Users Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -35,6 +36,7 @@ router.post('/', async (req, res) => {
         res.status(200).json(userData);
       });
     } catch (err) {
+      sendError(err)
       res.status(400).json(err);
     }
   });
@@ -43,21 +45,24 @@ router.post('/', async (req, res) => {
 router.post('/survey', async (req, res) => {
   try {
     const userData = await Survey.create({
-      userId: req.session.user_id,
-      gender: req.session.gender,
+      profile_pic: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png',
+      user_id: req.session.user_id,
+      gender: req.body.gender,
       pref_gender: req.body.genderPref, 
-      dating_for: req.body.datingFor,
-      relationship_type: req.body.relationshipType,
+      goal: req.body.datingFor,
+      relationship: req.body.relationshipType,
       language: req.body.language,
       birthdate: req.body.birthdate,
       programmer_type: req.body.programmerType,
-      worker_type: req.body.workerType,
-      ideal_date: req.body.idealDate
+      worker: req.body.workerType,
+      ideal_date: req.body.idealDate,
+      bio:req.body.bio
     })
     console.log(userData)
     res.json(userData)
   } 
   catch(err) {
+    sendError(err)
     console.log(err)
   }
 })
@@ -91,6 +96,7 @@ router.post('/survey', async (req, res) => {
       });
   
     } catch (err) {
+      sendError(err)
       res.status(400).json(err);
     }
   });

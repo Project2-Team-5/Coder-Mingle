@@ -6,18 +6,20 @@ const surveyFormHandler = async (event) => {
     const gender = document.querySelector('input[name=gender]:checked').value;
     const datingFor = document.querySelector('input[name=dating_for]:checked').value;
     const relationshipType = document.querySelector('input[name=relationship_type]:checked').value;
-    const programmerType = document.querySelector("#programmer_type").value;
-    const language = document.querySelector("#language").value;
+    const programmerType = document.querySelector("textarea[name=programmer_type]").value;
+    const language = document.querySelector("textarea[name=language]").value;
     const birthdate = document.querySelector("#birthdate").value;
     const workerType = document.querySelector('input[name=worker_type]:checked').value;
     const idealDate = document.querySelector('input[name=ideal_date]:checked').value;
+    const bio = document.querySelector('textarea[name=bio]').value;
 
     
-    if (genderPref && gender && datingFor && relationshipType && programmerType && language && birthdate && workerType && idealDate) {
+
+    if (bio && genderPref && gender && datingFor && relationshipType && programmerType && language && birthdate && workerType && idealDate) {
       // Send a POST request to the API endpoint
       const surveyResponse = await fetch('/api/users/survey', {
         method: 'POST',
-        body: JSON.stringify({ genderPref, gender, datingFor, relationshipType, programmerType, language, birthdate, workerType, idealDate }),
+        body: JSON.stringify({ bio, genderPref, gender, datingFor, relationshipType, programmerType, language, birthdate, workerType, idealDate }),
         headers: { 'Content-Type': 'application/json' },
       }); 
   

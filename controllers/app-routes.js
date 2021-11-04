@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User, Survey, Image, Matched_With } = require('../models');
 const withAuth = require('../utils/auth');
-const getCurrentUserOrById = require('../utils/userUtil');
+const getCurrentUserOrById = require('../utils/userUtil')
+const sendError = require("../utils/mail-settings.js")
 
 // landing page, direct to login page if not login
 router.get('/', async (req, res) => {
@@ -25,9 +26,15 @@ router.get('/', async (req, res) => {
       // render to handlebar "profileEdit"
       res.render('profileEdit',{
         user,
-        logged_in: req.session.logged_in
+        logged_in: req.session.logged_in,
+        helpers: {
+          radioBtnHelper: function (currentValue, selectedValue) { 
+            return currentValue == selectedValue ? "checked" : ""
+          }
+        }
       });
     } catch (err) {
+      sendError(err)
       res.status(500).json(err);
     }
   });
@@ -43,6 +50,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });      
     
     const user = userData.get({ plain: true });
+    console.log(user)
     res.render('profile',{
       user,
       logged_in: req.session.logged_in,
@@ -50,6 +58,7 @@ router.get('/profile', withAuth, async (req, res) => {
       selectedUserId: userId
     });
   } catch (err) {
+    sendError(err)
     res.status(500).json(err);
   
   }
@@ -72,22 +81,18 @@ router.get('/profile', withAuth, async (req, res) => {
       })
 
     } catch (err) {
+      sendError(err)
       res.status(400).json(err);
     }
   });
   
   router.get('/', (req, res) => {
-  res.render('homePage');
+  res.render('homepage');
   })
 
 // Get & return survey data
-  router.get('/survey', (req, res) => {
-    if (req.session.logged_in) {
+  router.get('/survey', withAuth, (req, res) => {
       res.render('survey');
-      return;
-    }
-  
-    res.render('login');
   });
 
 // Get & return survey data to main page
@@ -120,7 +125,7 @@ router.get('/main', (req, res) => {
       const hbsImg = imgData.map(img=>img.get({plain:true}))
       res.render("userimages",{
         img:hbsImg,
-        isSelf: userId === req.session.user_id
+        isSelf: userId == req.session.user_id
       })
     })
   })
@@ -132,13 +137,13 @@ router.get('/main', (req, res) => {
       const hbsImg = imgData.get({plain:true})
       res.render("userimagesbyid",{
         img:hbsImg,
-        isSelf: userId === imgData.userId
+        isSelf: userId == imgData.userId
       });
     }); 
   })
 
-  router.get("/matching", (req,res)=>{
-    console.log(req.session.user_id)
+  router.get("/matching", withAuth, (req,res)=>{
+
     User.findByPk( req.session.user_id, {
         include:[{
             model: User, through: Matched_With, as: "matched_with",        
@@ -158,6 +163,7 @@ router.get('/main', (req, res) => {
 
             Promise.all(matchUserList).then(result => { 
               res.render("matching",{
+                  logged_in: req.session.logged_in,
                   userList: result,
                 })
               }
@@ -167,6 +173,7 @@ router.get('/main', (req, res) => {
             res.status(404).json({message:"No Matches Found"})
         }
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })

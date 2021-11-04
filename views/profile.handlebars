@@ -1,24 +1,16 @@
-<header>
-    <div class="text-center p-1">
-
-<h1>This is a profile testing page, {{user.username}}</h1>
-    </div>
-</header>
-
-<main div class=" m-4 pl-4 pt-3">
-
-<h3>Name:</h3> 
-<p>{{user.first_name}}  {{user.last_name}} </p>
-
-<h3>Profile Photo</h3>
-<img src="{{user.survey.profile_pic}}"alr="personal photo">
-{{#if selectedUserId}}
-<a href="/userimages?id={{selectedUserId}}">View Images</a>
-{{else}}
-<a href="/userimages">View Images</a>
-{{/if}}
+<profile class="profile">
 
 
+<div class=" m-4 pl-4 pt-3 display-5">
+
+<p id="prof-name">{{user.first_name}}  {{user.last_name}} </p>
+
+<div class="box">
+<img src="{{user.survey.profile_pic}}"alr="personal photo:">
+</div>
+
+
+<br>
 <h3>Bio: </h3>
 <p>{{user.survey.bio}}</p>
 
@@ -39,22 +31,34 @@
 <h3>Ideal relationship: </h3>
 <p>{{user.survey.relationship}}</p>
 
-<h3>Reason for joining Coder Mingle: </h3>
+<h3>Reason for joining: </h3>
 <p>{{user.survey.goal}}</p>
 
 <h3>Working style: </h3>
 <p>{{user.survey.worker}}</p>
 
+<h3>Type of programmer: </h3>
+<p>{{user.survey.programmer_type}}</p>
+
 <h3>Preferred language: </h3>
 <p>{{user.survey.language}}</p>
 
-<h3>Ideal date night would be: </h3>
+<h3 class=>Ideal date night: </h3>
 <p>{{user.survey.ideal_date}}</p>
+</test>
 
 {{#if isSelf}}
-<a href="/profile/edit">Edit</a>
+<a class="edit-btn" href="/profile/edit">Edit</a>
 {{else}}
 {{!-- add comment section here --}}
 {{/if}}
 
+{{#if selectedUserId}}
+<a class="edit-btn" href="/userimages?id={{selectedUserId}}">View Albums</a>
+{{else}}
+<a class="edit-btn" href="/userimages">View Albums</a>
+{{/if}}
+
 </main>
+</div>
+</profile>
