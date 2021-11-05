@@ -27,14 +27,6 @@ router.get('/main', async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('login');
-});
-
 // GET one survey response
 router.get('/survey/:id', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
