@@ -140,5 +140,63 @@
         "error": {
             "name": "SequelizeEagerLoadingError"
         }
+    },
+    {
+        "date": 1636135912532,
+        "error": {
+            "name": "SequelizeUniqueConstraintError",
+            "errors": [
+                {
+                    "message": "user.email must be unique",
+                    "type": "unique violation",
+                    "path": "user.email",
+                    "value": "shinyzhengs@gmail.com",
+                    "origin": "DB",
+                    "instance": {
+                        "id": null,
+                        "first_name": "test",
+                        "last_name": "test",
+                        "username": "111",
+                        "email": "shinyzhengs@gmail.com",
+                        "password": "$2b$10$FcIQB7UgqMYtIjqGmrIyn.zPL.RJpQ9YT.S05uWIz5Y5dflDEgsHG"
+                    },
+                    "validatorKey": "not_unique",
+                    "validatorName": null,
+                    "validatorArgs": []
+                }
+            ],
+            "fields": {
+                "user.email": "shinyzhengs@gmail.com"
+            },
+            "parent": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'shinyzhengs@gmail.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "111",
+                    "shinyzhengs@gmail.com",
+                    "$2b$10$FcIQB7UgqMYtIjqGmrIyn.zPL.RJpQ9YT.S05uWIz5Y5dflDEgsHG"
+                ]
+            },
+            "original": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'shinyzhengs@gmail.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "111",
+                    "shinyzhengs@gmail.com",
+                    "$2b$10$FcIQB7UgqMYtIjqGmrIyn.zPL.RJpQ9YT.S05uWIz5Y5dflDEgsHG"
+                ]
+            },
+            "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);"
+        }
     }
 ]
