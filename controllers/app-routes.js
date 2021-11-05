@@ -13,6 +13,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
   router.get('/profile/edit', withAuth, async (req, res) => {
     try {
       // Find the logged in user based on the session ID
