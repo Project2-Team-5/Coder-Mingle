@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User,Post,Survey} = require("../../models")
+const {User, Survey} = require("../../models")
 const sendError = require("../../utils/mail-settings.js")
 
 router.get("/",(req,res) => {
