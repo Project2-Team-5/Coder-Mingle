@@ -10,15 +10,9 @@ Post.init({
         type: DataTypes.TEXT,
         allowNull: false
     },
-    post_date: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-        defaultValue: Sequelize.NOW
-    }
 },
 {
     sequelize,
-    timestamps: false  
 })
 
 module.exports=Post

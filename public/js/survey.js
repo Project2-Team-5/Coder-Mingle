@@ -34,6 +34,6 @@ const surveyFormHandler = async (event) => {
 
   
   document
-    .querySelector('#survey-form')
+    .querySelector('#surveyForm')
     .addEventListener('submit', surveyFormHandler);
   
