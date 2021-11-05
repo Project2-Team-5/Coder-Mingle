@@ -1,6 +1,5 @@
 const updateProfileHandler = async (event) => {
     event.preventDefault();
-console.log('sdfsdfsdf');
     
     const gender = document.querySelector('input[name=gender]:checked').value.trim();
     const birthdate = document.querySelector('#birthdate').value.trim();
@@ -59,5 +58,6 @@ console.log('sdfsdfsdf');
       }
     
 };
+
 
 document.querySelector('#update-form').addEventListener('submit', updateProfileHandler);

@@ -43,6 +43,9 @@
 <h3>Preferred language: </h3>
 <p1>{{user.survey.language}}</p1>
 
+<h3>Programmer Type:</h3>
+<p1>{{user.survey.programmer_type}}</p1>
+
 <h3 class=>Ideal date night: </h3>
 <p1 class="pb-4">{{user.survey.ideal_date}}</p1>
 </test>
@@ -60,7 +63,30 @@
 <a class="edit-btn" href="/userimages">View Images</a>
 {{/if}}
 
+
+{{!-- #unless: only show comment form when viewing other profiles --}}
+{{#unless isSelf}}
+<form id="post-form">
+  <div class="form-group">
+          <label for="post">Leave a comment for {{user.first_name}}  {{user.last_name}}</label>
+    <textarea class="form-control" id="post" rows="3"></textarea>
+    <input type="hidden" id="userId" name="userId" value={{selectedUserId}}>
+    <button type="submit" class="btn btn-primary mb-2">Comment</button>
+</div>
+</form>
+{{/unless}}
 </main>
 </div>
 </profile>
+
+{{#each user.Posts}}
+    {{comment}}
+    <br />
+    {{dateFormatterHelper createdAt}}
+    <br />
+    {{author.first_name}}  {{author.last_name}}
+    <br />
+{{/each}}
+
+<script src="/js/post.js"></script>
 

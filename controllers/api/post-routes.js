@@ -1,11 +1,14 @@
 const router = require('express').Router();
 const { Post } = require("../../models")
+const withAuth = require('../../utils/auth');
 
 
 // get all post
 router.get("/", (req, res) => {
     Post.findAll({
-        userId: req.session.user_id
+        where: {
+          userId: req.session.user_id
+        }
     })
         .then(postData => {
             res.json(postData);
@@ -35,17 +38,14 @@ router.get("/:id", (req, res) => {
 
 
 // create a post
-router.post("/", (req, res) => {
-    if (!req.session.user) {
-      return res.status(403).json({ err: "please login first" });
-    }
+router.post("/", withAuth, (req, res) => {
     Post.create({
       comment: req.body.comment,
-      authorId: req.session.user.id,
+      authorId: req.session.user_id,
       userId: req.body.userId
     })
       .then(newPost => {
-        res.json(newPost);
+        res.status(200).json(newPost);
       })
       .catch(err => {
         console.log(err);

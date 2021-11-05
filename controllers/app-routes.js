@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const { User, Survey, Image, Matched_With } = require('../models');
+const { User, Survey, Image, Matched_With, Post } = require('../models');
 const withAuth = require('../utils/auth');
 const getCurrentUserOrById = require('../utils/userUtil')
 const sendError = require("../utils/mail-settings.js")
+const moment = require('moment')
 
 // landing page, direct to login page if not login
 router.get('/', async (req, res) => {
@@ -55,16 +56,30 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(userId, {
       attributes: { exclude: ['password'] },
-      include: [Survey,Image],
+      include: [
+        Survey,
+        Image,
+        {model: Post,
+          include : [{
+            model: User, as: 'author'
+          }]
+        },
+    ]
     });      
     
     const user = userData.get({ plain: true });
-    console.log(user)
+    
     res.render('profile',{
       user,
       logged_in: req.session.logged_in,
       isSelf: userId === req.session.user_id,
-      selectedUserId: userId
+      selectedUserId: userId,
+      helpers: {
+        dateFormatterHelper: function (inputDate) { 
+          //format time to desired format
+          return moment(inputDate).format('YYYY-MM-DD HH:mm:ss');
+        }
+      }
     });
   } catch (err) {
     sendError(err)
@@ -105,7 +120,7 @@ router.get('/profile', withAuth, async (req, res) => {
   });
 
 ////////// Test code for main page
-router.get('/main', async (req, res) => {
+router.get('/main', withAuth, async (req, res) => {
   try {
     const allUserData = await User.findAll({
       include: [
@@ -122,7 +137,7 @@ router.get('/main', async (req, res) => {
     console.log(users)
     res.render('mainPage', {
       users,
-      loggedIn: req.session.loggedIn,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -182,17 +197,26 @@ router.get('/main', async (req, res) => {
               res.render("matching",{
                   logged_in: req.session.logged_in,
                   userList: result,
+                  hasMatch: true,
+                  hasPending:  false //add check if has pending match
                 })
               }
             )
         }
         else {
-            res.status(404).json({message:"No Matches Found"})
+          res.render("matching",{
+            logged_in: req.session.logged_in,
+            hasMatch: false,
+            hasPending:  false //check if has pending match
+          })
         }
     }).catch(err=>{
         sendError(err)
-        console.log(err)
-        res.status(500).json({message:"An Error Occured",err:err})
+        res.render("matching",{
+          logged_in: req.session.logged_in,
+          hasMatch: false,
+          hasPending:  false //check if has pending match
+        })
     })
 })
 

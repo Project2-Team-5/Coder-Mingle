@@ -1,11 +1,21 @@
 <div class="matchCardContainer">
-{{#each userList}}
-    <a class="matchCard" href="/profile?id={{userId}}">
 
-   <h2 class="matchCardHeader">
-       {{fullname}}
-   </h2> 
-    <img class="rounded-0" src="{{profile_pic}}" alt="User profile image {{fullname}}">
-    </a>
-{{/each}}
+{{#if hasPending}}
+    {{!-- add pending match section need to add hasPending to handlerBar data--}}
+{{/if}}
+
+{{#if hasMatch}}
+    {{#each userList}}
+        <a class="matchCard" href="/profile?id={{userId}}">
+
+    <h2 class="matchCardHeader">
+        {{fullname}}
+    </h2> 
+        <img class="rounded-0" src="{{profile_pic}}" alt="User profile image {{fullname}}">
+        </a>
+    {{/each}}
+{{else}}
+    {{!-- placer holder, update with more content later --}}
+    like more people to get matches
+{{/if}}
 </div>
