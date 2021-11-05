@@ -12,4 +12,8 @@ router.get("/",(req,res)=>{
     }
 })
 
+router.get("/session",(req,res)=>{
+    res.json(req.session)
+})
+
 module.exports = router

@@ -112,6 +112,62 @@ const surveyData = [
         ideal_date: "Hit the club, take some shots, initiate the bender",
         programmer_type: "Web Developer",
         profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045484/placeimg_640_480_people_1_nwtkf5.png"
+    },
+    {
+        user_id: 9,
+        birthdate: "1985-08-22",
+        gender: "Male",
+        pref_gender: "Female",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/1_ojbkxk.jpg"
+    },
+    {
+        user_id: 10,
+        birthdate: "1994-07-23",
+        gender: "Male",
+        pref_gender: "Male",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/3_vljodp.jpg"
+    },
+    {
+        user_id: 11,
+        birthdate: "1994-11-13",
+        gender: "Female",
+        pref_gender: "Male",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045484/placeimg_640_480_people_1_nwtkf5.png"
+    },
+    {
+        user_id: 12,
+        birthdate: "2000-12-20",
+        gender: "Female",
+        pref_gender: "Female",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045484/placeimg_640_480_people_jle8q3.png"
     }
 ]
 

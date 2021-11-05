@@ -2,84 +2,84 @@ const {Post} = require("../models")
 
 const postData = [
     {
-        UserId: 1,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 1,
+        authorId: 2,
     },
     {
-        UserId: 1,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 2,
+        authorId: 3,
     },
     {
-        UserId: 2,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 3,
+        authorId: 4,
     },
     {
-        UserId: 2,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 4,
+        authorId: 5,
     },
     {
-        UserId: 3,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 5,
+        authorId: 6,
     },
     {
-        UserId: 3,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 6,
+        authorId: 7,
     },
     {
-        UserId: 4,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 7,
+        authorId: 8,
     },
     {
-        UserId: 4,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 8,
+        authorId: 9,
     },
     {
-        UserId: 5,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 9,
+        authorId: 10,
     },
     {
-        UserId: 5,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 10,
+        authorId: 11,
     },
     {
-        UserId: 6,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 11,
+        authorId: 12,
     },
     {
-        UserId: 6,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 12,
+        authorId: 1,
     },
     {
-        UserId: 7,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 1,
+        authorId: 2,
     },
     {
-        UserId: 7,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 2,
+        authorId: 3,
     },
     {
-        UserId: 8,
         comment: "Wow, this is a comment!",
-        post_date: "2021-10-31"
+        userId: 3,
+        authorId: 4,
     },
     {
-        UserId: 8,
         comment: "A second comment!",
-        post_date: "2021-10-31"
+        userId: 4,
+        authorId: 5,
     }
 ]
 

@@ -1,8 +1,13 @@
 const router = require('express').Router();
-const { User, Survey, Image, Matched_With } = require('../models');
+const { User, Survey, Image, Matched_With, Post } = require('../models');
 const withAuth = require('../utils/auth');
 const getCurrentUserOrById = require('../utils/userUtil')
 const sendError = require("../utils/mail-settings.js")
+const moment = require('moment')
+const newMatches = require("../utils/newMatches")
+const sequelize = require('../config/connection')
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op
 
 // landing page, direct to login page if not login
 router.get('/', async (req, res) => {
@@ -11,6 +16,14 @@ router.get('/', async (req, res) => {
   } else {
     res.render('homepage');
   }
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
 });
 
   router.get('/profile/edit', withAuth, async (req, res) => {
@@ -42,20 +55,35 @@ router.get('/', async (req, res) => {
   // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
+    newMatches(req,res)
     let userId = getCurrentUserOrById(req)
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(userId, {
       attributes: { exclude: ['password'] },
-      include: [Survey,Image],
+      include: [
+        Survey,
+        Image,
+        {model: Post,
+          include : [{
+            model: User, as: 'author'
+          }]
+        },
+    ]
     });      
     
     const user = userData.get({ plain: true });
-    console.log(user)
+    
     res.render('profile',{
       user,
       logged_in: req.session.logged_in,
       isSelf: userId === req.session.user_id,
-      selectedUserId: userId
+      selectedUserId: userId,
+      helpers: {
+        dateFormatterHelper: function (inputDate) { 
+          //format time to desired format
+          return moment(inputDate).format('YYYY-MM-DD HH:mm:ss');
+        }
+      }
     });
   } catch (err) {
     sendError(err)
@@ -96,7 +124,7 @@ router.get('/profile', withAuth, async (req, res) => {
   });
 
 ////////// Test code for main page
-router.get('/main', async (req, res) => {
+router.get('/main', withAuth, async (req, res) => {
   try {
     const allUserData = await User.findAll({
       include: [
@@ -113,7 +141,7 @@ router.get('/main', async (req, res) => {
     console.log(users)
     res.render('mainPage', {
       users,
-      loggedIn: req.session.loggedIn,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     console.log(err);
@@ -150,41 +178,100 @@ router.get('/main', async (req, res) => {
     }); 
   })
 
-  router.get("/matching", withAuth, (req,res)=>{
-
-    User.findByPk( req.session.user_id, {
-        include:[{
-            model: User, through: Matched_With, as: "matched_with",        
-        }]
-    }).then(user=>{
-        if(user.matched_with.length){
-            let matchUserList = user.matched_with.map( async matchUser => {
-                let survey = await Survey.findByPk(matchUser.id)
-                let matchUserReturn = {
-                    profile_pic: survey.profile_pic,
-                    fullname: matchUser.first_name + ' ' + matchUser.last_name,
-                    userId: matchUser.id
-                }
-                // console.log(matchUserReturn);
-                return matchUserReturn;
-            })
-
-            Promise.all(matchUserList).then(result => { 
-              res.render("matching",{
-                  logged_in: req.session.logged_in,
-                  userList: result,
-                })
-              }
-            )
+// Gets the pending and aproved matches and renders them
+router.get("/matching", withAuth, (req,res)=>{
+  newMatches(req,res)
+  User.findOne({
+    where: {
+      id:req.session.user_id
+    },
+    include:[{model: User, as: "match_one"}]
+  }).then(userData=>{
+    const hbsUser = userData.match_one.map(data=>data.get({plain:true}))
+    const userId = []
+    for (let i = 0; i < hbsUser.length; i++) {
+      userId.push(hbsUser[i].id)        
+    }
+    Survey.findAll({
+      where: {
+        user_id: {
+          [Op.in]:userId
         }
-        else {
-            res.status(404).json({message:"No Matches Found"})
+      },
+      include:[User]
+    }).then(surveyData=>{
+      const hbsSurvey = surveyData.map(survey=>survey.get({plain:true}))
+      User.findOne({
+        where: {
+          id:req.session.user_id
+        },
+        include:[{model: User, as: "match_two"}]
+      }).then(twoData=>{
+        const hbsTwo = twoData.match_two.map(two=>two.get({plain:true}))
+        const twoID = []
+        for (let i = 0; i < hbsTwo.length; i++) {
+          twoID.push(hbsTwo[i].id)               
         }
-    }).catch(err=>{
-        sendError(err)
-        console.log(err)
-        res.status(500).json({message:"An Error Occured",err:err})
+        Survey.findAll({
+          where: {
+            user_id: {
+              [Op.in]:twoID
+            }
+          },
+          include:[User]
+        }).then(twoSurveyData=>{
+          const hbsTwoSurvey = twoSurveyData.map(twosurvey=>twosurvey.get({plain:true}))
+          res.render("matching",{
+            pending:hbsSurvey,
+            approved:hbsTwoSurvey,
+            logged_in: req.session.logged_in
+          })
+        })
+      })
     })
+  })
+})
+
+//Shows the profile of an approved match
+router.get("/matching/:id", withAuth, (req,res)=>{
+  User.findOne({
+      where: {
+          id:req.params.id
+      },
+      include: [Survey],
+      attributes:{
+          include: [
+              [sequelize.fn('date_format', sequelize.col('birthdate'), '%m-%d-%Y'), 'birthdate']
+          ]
+      }
+  }).then(userData=>{
+      const hbsUser = userData.get({plain:true})
+      res.render("appmatch",{
+          user:hbsUser,
+          logged_in: req.session.logged_in
+      })
+  })
+})
+
+//Shows the profile of a pending match
+router.get("/pending/:id", withAuth, (req,res)=>{
+  User.findOne({
+    where: {
+      id:req.params.id
+    },
+    include: [Survey],
+    attributes:{
+      include: [
+          [sequelize.fn('date_format', sequelize.col('birthdate'), '%m-%d-%Y'), 'birthdate']
+      ]
+    }
+  }).then(userData=>{
+    const hbsUser = userData.get({plain:true})
+    res.render("pending",{
+      user:hbsUser,
+      logged_in:req.session.logged_in,
+    })
+  })
 })
 
 

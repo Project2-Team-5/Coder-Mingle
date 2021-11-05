@@ -15,7 +15,9 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // TODO: If successful, redirect the browser to the main page, currently for testing using profile page
-        document.location.replace('/profile');
+        setInterval(() => {
+          location.href = "/profile"          
+        }, 500);
       } else {
         alert(response.statusText);
       }

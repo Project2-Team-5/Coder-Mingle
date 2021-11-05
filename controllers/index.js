@@ -4,7 +4,7 @@ const appRoutes = require("./app-routes")
 
 
 router.use("/api", apiRoutes)
-router.use('/',appRoutes)
+router.use(appRoutes)
 
 
 module.exports = router;
