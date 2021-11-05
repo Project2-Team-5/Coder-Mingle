@@ -71,8 +71,7 @@ router.get('/profile', withAuth, async (req, res) => {
       selectedUserId: userId
     });
   } catch (err) {
-    // sendError(err)
-    console.log(err)
+    sendError(err)
     res.status(500).json(err);
   
   }

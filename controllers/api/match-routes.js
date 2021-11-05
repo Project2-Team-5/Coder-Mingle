@@ -90,6 +90,7 @@ router.delete("/pending/aprove",(req,res)=>{
             res.status(500).json({message:"An Error Occured",err:err})
         })
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -105,6 +106,7 @@ router.delete("/pending/reject",(req,res)=>{
     }).then(delMatch=>{
         res.json(delMatch)
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
@@ -120,6 +122,7 @@ router.delete("/approved",(req,res)=>{
     }).then(delMatch=>{
         res.json(delMatch)
     }).catch(err=>{
+        sendError(err)
         console.log(err)
         res.status(500).json({message:"An Error Occured",err:err})
     })
