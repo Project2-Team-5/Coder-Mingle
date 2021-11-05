@@ -12,6 +12,7 @@
 }
 
 body {
+  overscroll-behavior:none;
   background-image: radial-gradient(
     rgb(0, 255, 174) 0%, rgb(37, 20, 220) 40%, rgb(255, 119, 0) 60%, rgb(252, 140, 248) 100%
   )
@@ -180,7 +181,9 @@ animation: flip 2s linear infinite;
   padding: 10px;
   background-color: var(--secondaryBlue);
   border: double 2px gray;
-  color: var(--primaryPurp)
+  color: var(--primaryPurp);
+  margin-top: 15px;
+  padding: 5px;
 }
 
 .box {
@@ -229,12 +232,14 @@ padding-top: 40px;
   text-align: center;
 }
 
-p {
+p1 {
   font-size: larger;
   color: var(--primaryBlue);
   margin-right: auto;
   margin-left:auto ;
   text-align: center;
+  display: flex;
+  justify-content: space-evenly;
 }
 .match-header {
   text-align: center;
@@ -284,3 +289,175 @@ a.matchCard {
   background-color: #d6d3f7;
   
 }
+
+#update-form {
+  background-color: aqua;
+  margin-left: auto;
+}
+
+
+
+#survey {
+  text-align: center;
+  background-image: linear-gradient(
+    to bottom right,
+    #4d19eb 0%,
+    #0ff0fc 40%,
+    #daa8eb 60%,
+    #9d00ff 100%
+    );
+    background-size: 200% 200%;
+    animation: movingGradient 5s linear infinite alternate;
+  }
+  @keyframes movingGradient {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 100%;
+    }
+    
+  
+
+}
+
+#surveyForm {
+  background: rgb(255,116,9);
+  background: linear-gradient(354deg, rgba(255,116,9,1) 0%, rgb(214, 73, 202) 24%, rgb(214, 73, 202) 60%, rgba(255,116,9,1) 100%);
+  max-width: 800px;
+  margin: 0px auto;
+  padding: 30px 30px;
+  color: ;
+  font-size: 20px;
+  font-weight: 900;
+  padding-bottom: 20px;
+
+
+}
+.surveyForm-control {
+  text-align: left;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+
+}
+
+.surveyForm-control Label {
+  display: block;
+  margin-bottom:10px;
+  margin-top: 0px;
+  display: flex;
+  justify-content: ;
+  padding-right:40px;
+  padding-left:40px;
+  margin-right: 90px;
+}
+
+.surveyForm-control input{
+  border: 2px solid rgb(0, 21, 255);
+  border-radius: 2px;
+  padding:10px;
+  display: block;
+  width:95%;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+
+.surveyForm-control textarea {
+  border: 2px solid rgb(115, 255, 45);
+  border-radius: 2px;
+  padding:10px;
+  display: block;
+  width:95%;
+  text-align: center;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  position: relative;
+
+}
+
+
+
+.survey-btn {
+  background-color: var(--primaryPurp);
+  color:var(--secondaryPurp);
+  border: 1px solid #777;
+  border-radius: 2px;
+  font-size: 21px;
+  display: block;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p4 {
+  font-size: larger;
+  color: var(--primaryBlue);
+  margin-right: auto;
+  margin-left:auto ;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+
+.surveyContainer {
+display:block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+
+}
+
+.surveyContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position:absolute;
+  top:0;
+  left:0;
+  height: 25px;
+  width: 25px;
+  background-color:var(--primaryPurp);
+  border-radius: 50%;
+  margin-top:2px;
+}
+
+.surveyContainer:hover input ~ .checkmark {
+  background-color:var(--secondaryBlue);
+}
+
+.surveyContainer:checked ~ {
+  background-color: #fcb90f;
+}
+
+.checkmark:after {
+  content:"";
+  position: absolute;
+  display: none;
+}
+
+.surveyContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.surveyContainer .checkmark:after {
+  top: 9px;
+  left:9px;
+  width:8px;
+  height:8px;
+  border-radius: 50%;
+  background-color: var(--secondaryPurp);
+}
+
