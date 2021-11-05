@@ -51,14 +51,14 @@ header a:hover {
   
   .title {
   display: flex;
-  justify-content: flex-start;
-  margin-right: 650px;
   font-size: 40px;
   font-weight: bold;
   text-decoration: none;
   color: rgb(255, 255, 255);
   margin-bottom: 0px;
   background-color: transparent;
+  position:relative;
+  margin-right: auto;
   }
   
   nav {
@@ -136,23 +136,6 @@ font-size: 45px;
 }
 
 
-/* .spinner {
-height: 36px;
-width: 36px;
-background-color: #ff00a2;
-animation: flip 2s linear infinite;
-}
-@keyframes flip {
-50% {
-  transform: rotateX(180deg);
-}
-100% {
-  transform: rotateX(180deg) rotateY(180deg);
-}
-} */
-
-
-
 #login-form {
   display:flex;
   flex-direction: column;
@@ -175,6 +158,11 @@ animation: flip 2s linear infinite;
   
   
 }
+#post {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
 
 .edit-btn {
   position: relative;
@@ -184,6 +172,17 @@ animation: flip 2s linear infinite;
   color: var(--primaryPurp);
   margin-top: 15px;
   padding: 5px;
+}
+
+.comment-btn {
+margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#commentContainer {
+  text-align: center;
+  margin: 10px;
+
 }
 
 .box {
@@ -211,6 +210,43 @@ img {
   align-items: center;
 }
 
+.grid-container {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  margin: auto;;
+  height:fit-content;
+  width: fit-content;
+  position: relative;
+}
+
+.grid-item {
+  background-color: aqua;
+  align-content: center;
+  padding:5px;
+  padding-left: 8px;
+  padding-right: 5px;
+  max-width: 100%;
+  max-height: ;
+  height: auto;
+}
+
+.grid-item-2 {
+  max-height: auto;
+}
+
+#back-btn {
+  position: absolute;
+  border: 1px solid #777;
+  background-color: #fcb90f;
+  border-radius: 2px;
+  font-size: 32px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2px;
+  
+}
 .profPage {
   margin: 80px;
   margin-bottom: 0px;
