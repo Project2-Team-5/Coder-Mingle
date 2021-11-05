@@ -55,7 +55,6 @@ router.get('/login', (req, res) => {
   // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    newMatches(req,res)
     let userId = getCurrentUserOrById(req)
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(userId, {
