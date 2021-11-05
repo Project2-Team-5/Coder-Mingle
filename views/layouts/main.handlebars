@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,19 +8,20 @@
     <title>CODER MINGLE</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/a27e1a9191.js" crossorigin="anonymous"></script>
 </head>
-<header>
+
     <!-- Render script for logged in users only -->
-        <a class="title" href="homepage">Cinder</a>
-</header>
+{{#if logged_in}}
 <navbar class="navbar">
-   <nav class="navbar navbar-expand-lg navbar-light mx-auto">
-  <div class="container-fluid">
+   
+        {{!-- <div class="title mx-auto"> Coder Mingle --}}
+            <h3 class="title">Coder Mingle</h3>
     <a class="navbar-brand" href="/main">Main</a>
     <a class="navbar-brand" href="/profile">Profile</a>
     <a class="navbar-brand" href="/matching">Matching</a>
     {{#if logged_in}}
-        <button class="btn" id="logout">Logout</button>
+        <button class="logout-btn" id="logout">Logout</button>
         {{/if}}
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     </div>
@@ -27,6 +29,8 @@
 </nav>
 </navbar>
   
+        </div> 
+        {{/if}}
 <body>
  {{{ body }}}
     {{#if logged_in}}

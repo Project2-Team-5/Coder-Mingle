@@ -12,8 +12,18 @@ Survey.belongsTo(User)
 
 Post.belongsTo(User)
 
+Post.belongsTo(User, {
+    as: "author",
+})
+
 User.hasMany(Post,
     {
+        onDelete: "CASCADE"
+    })
+
+User.hasMany(Post,
+    {
+        as:"author",
         onDelete: "CASCADE"
     })
 
@@ -44,7 +54,7 @@ User.hasMany(Image, {
 
 Image.belongsTo(User)
 
-module.exports={
+module.exports = {
     User,
     Post,
     First_Match,

@@ -1,102 +1,165 @@
-<h1>We'd like to get to know you</h1>
+<div id="survey">
+  <form id="surveyForm">
 
-<form id="survey-form">
 
-    <p>1. What is your gender?</p>
-  <input type="radio" id="female" name="gender" value="female">
-  <label for="female">Female</label><br>
-  <input type="radio" id="male" name="gender" value="male">
-  <label for="male">Male</label><br>
-  <input type="radio" id="anyone" name="gender" value="anyone">
-  <label for="javascript">None of the above, or prefer not to say</label>
+  {{!-- Gender --}}
+  <div class="surveyForm-control">
+  <p4>What is your gender?</p4>
+  <label for="female" class="surveyContainer">Female
+    <input type="radio" id="female" name="gender" value="female">
+    <span class="checkmark"></span>
+  </label>
+   <label for="male" class="surveyContainer">Male
+    <input type="radio" id="male" name="gender" value="male">
+    <span class="checkmark"></span>
+  </label>
+  </div>
+  {{!-- <input type="radio" id="anyone" name="gender" value="prefer not to say">
+  <label for="anyone">Prefer not to say</label> --}}
 
-  <br>
-  <br>
 
-  <p>2. Who would you like to see on this site?</p>
-  <input type="radio" id="female" name="pref_gender" value="female">
-  <label for="female">Female</label><br>
-  <input type="radio" id="male" name="pref_gender" value="male">
-  <label for="male">Male</label><br>
-  <input type="radio" id="anyone" name="pref_gender" value="anyone">
-  <label for="javascript">Anyone</label>
-
-  <br>
-  <br>
-
-  <p>3. What is your birthdate?</p>
+{{!-- Gender Preference --}}
+ <div class="surveyForm-control">
+  <p4>Who would you like to see on this site?</p4>
+  <label for="prefer_female" class="surveyContainer">Female
+  <input type="radio" id="prefer_female" name="pref_gender" value="female">
+   <span class="checkmark"></span>
+   </label>
+  <label for="prefer_male" class="surveyContainer">Male
+  <input type="radio" id="prefer_male" name="pref_gender" value="male">
+  <span class="checkmark"></span>
+  </label>
+  <label for="prefer_anyone" class="surveyContainer">Anyone
+  <input type="radio" id="prefer_anyone" name="pref_gender" value="anyone">
+  <span class="checkmark"></span>
+  </label>
+</div>
+{{!-- Birthday --}}
+ <div class="surveyForm-control">
+  <p4> What is your birthdate?</p4>
   <input type="date" id="birthdate" name="birthdate">
-  <label for="birthdate">Birthdate as MM/DD/YYYY</label><br>
+  <label for="birthdate"></label><br>
+ </div>
+{{!-- Reason for joining --}}
+ <div class="surveyForm-control">
+  <p4> Why are you joining this dating site?</p4>
+  <label for="long-term" class="surveyContainer">Long-term relationship
+  <input type="radio" id="long-term" name="dating_for" value="Long-term relationship">
+  <span class="checkmark"></span>
+  </label>
 
-  <br>
-  <br>
+  <label for="casual" class="surveyContainer">Just looking for something casual
+  <input type="radio" id="casual" name="dating_for" value="Just looking for something casual">
+  <span class="checkmark"></span>
+  </label>
 
-  <p>2. Why are you joining this dating site?</p>
-  <input type="radio" id="long-term" name="dating_for" value="long-term">
-  <label for="female">Long-term relationship</label><br>
-  <input type="radio" id="casual" name="dating_for" value="casual">
-  <label for="male">Just looking for something casual</label><br>
-  <input type="radio" id="prog-help" name="dating_for" value="prog-help">
-  <label for="javascript">I need programming help</label><br>
-  <input type="radio" id="none" name="dating_for" value="none">
-  <label for="female">None of the above</label>
+  <label for="prog-help"class="surveyContainer">I need programming help
+  <input type="radio" id="prog-help" name="dating_for" value="I need programming help">
+ 
+   <span class="checkmark"></span>
+  </label>
 
-  <br>
-  <br>
+  
+  <label for="none"class="surveyContainer">None of the above
+  <input type="radio" id="none" name="dating_for" value="None of the above">
+    <span class="checkmark"></span>
+  </label>
+ </div>
 
-  <p>3. Relationship-wise, how do you see yourself in the future?</p>
-  <input type="radio" id="marriage-kids" name="relationship_type" value="married-kids">
-  <label for="female">Married/committed with kids</label><br>
-  <input type="radio" id="marriage-nokids" name="relationship_type" value="married-nokids">
-  <label for="male">Married/committed, but unsure about or don't want kids</label><br>
-  <input type="radio" id="nomarriage-kids" name="relationship_type" value="nomarriage-kids">
-  <label for="javascript">Kids, but unsure about or don't want marriage/commitment</label><br>
-  <input type="radio" id="nomarriage-nokids" name="relationship_type" value="nomarriage-nokids">
-  <label for="female">I want to do my own thing forever, or none of the above</label>
+{{!-- Relationship-Preference --}}
+ <div class="surveyForm-control">
+  <p4> Relationship-wise, how do you see yourself in the future?</p4>
+  <label for="marriage-kids"class="surveyContainer">Married/committed with kids
+  <input type="radio" id="marriage-kids" name="relationship_type" value="Married/committed with kids">
+  <span class="checkmark"></span>
+    </label>
+  
 
-  <br>
-  <br>
+  <label for="marriage-nokids"class="surveyContainer">Married/committed, but unsure about or don't want kids
+  <input type="radio" id="marriage-nokids" name="relationship_type" value="Married/committed, but unsure about or don't want kids">
+  <span class="checkmark"></span>
+    </label>
 
-  <p>4. What type of programmer are you?</p>
-  <input type="text" id="programmer_type" placeholder="i.e. Web Developer, Data Scientist, etc...">
+  <label for="nomarriage-kids"class="surveyContainer">Kids, but unsure about or don't want marriage/commitment
+  <input type="radio" id="nomarriage-kids" name="relationship_type" value="Kids, but unsure about or don't want marriage/commitment">
+  <span class="checkmark"></span>
+    </label>
 
-  <br>
-  <br>
+  <label for="nomarriage-nokids"class="surveyContainer">I want to do my own thing forever, or none of the above
+  <input type="radio" id="nomarriage-nokids" name="relationship_type" value="I want to do my own thing forever, or none of the above">
+  <span class="checkmark"></span>
+    </label>
+ </div>
+{{!-- Type of programmer --}}
+ <div class="surveyForm-control">
+  <p4> What type of programmer are you?</p4>
+  <textarea id="programmer_type" name="programmer_type" rows="4" cols="50"
+    placeholder="i.e. Web Developer, Data Scientist, etc..."></textarea>
+ </div>
 
-  <p>5. What is your favorite programming language?</p>
-  <input type="text" id="language" placeholder="i.e. React.js, Python, Fortran, etc..">
+ <div class="surveyForm-control">
+  <p4>What is your favorite programming language?</p4>
+  <textarea id="language" name="language" rows="4" cols="50"
+    placeholder="i.e. C++, React.js, Python, Fortran, etc.."></textarea>
+ </div>
 
-  <br>
-  <br>
+{{!-- Work Ethic --}}
+ <div class="surveyForm-control">
+  <p4> How would you describe your work ethic?</p4>
+  <label for="hardest-worker"class="surveyContainer">Work and energy drinks all night, everynight
+  <input type="radio" id="hardest-worker" name="worker_type" value="Work and energy drinks all night, everynight">
+  <span class="checkmark"></span>
+  </label>
 
-  <p>6. How would you describe your work ethic?</p>
-  <input type="radio" id="hardest-worker" name="worker_type" value="hardest-worker">
-  <label for="hardest-worker">Work and energy drinks all night, everynight</label><br>
-  <input type="radio" id="hard-worker" name="worker_type" value="hard-worker">
-  <label for="hard-worker">Hard worker but I need my social life balance</label><br>
-  <input type="radio" id="lazy-worker" name="worker_type" value="lazy-worker">
-  <label for="lazy-worker">Do bare minimum to get the work done and then do other hobbies</label><br>
-  <input type="radio" id="none" name="worker_type" value="none">
-  <label for="none">None of the above</label>
+  <label for="hard-worker"class="surveyContainer">Hard worker but I need my social life balance
+  <input type="radio" id="hard-worker" name="worker_type" value="Hard worker but I need my social life balance">
+  <span class="checkmark"></span>
+  </label>
 
-  <br>
-  <br>
+  <label for="lazy-worker"class="surveyContainer">Do bare minimum to get the work done and then do other hobbies
+  <input type="radio" id="lazy-worker" name="worker_type" value="Do bare minimum to get the work done and then do other hobbies">
+  <span class="checkmark"></span>
+  </label>
 
-  <p>7. What is your ideal date night?</p>
-  <input type="radio" id="stay-in" name="ideal_date" value="stay-in">
-  <label for="stay-in">Stay in, get takeout, watch a movie or play video games</label><br>
-  <input type="radio" id="dio" name="ideal_date" value="dinner-date">
-  <label for="dinner-date">Go out to a nice restaurant or picnic and stare into each other’s eyes
-</label><br>
-  <input type="radio" id="game-night" name="ideal_date" value="game-night">
-  <label for="game-night">Go out with a group of friends for a game night or drinks</label><br>
-  <input type="radio" id="club-night" name="ideal_date" value="club-night">
-  <label for="club-night">Hit the club, take some shots, initiate the bender</label>
+ </div>
 
-<br>
-<br>
+{{!-- Ideal date-night --}}
+ <div class="surveyForm-control">
+  <p4> What is your ideal date night?</p4>
+  <label for="stay-in"class="surveyContainer">Stay in, get takeout, watch a movie or play video games
+  <input type="radio" id="stay-in" name="ideal_date" value="Stay in, get takeout, watch a movie or play video games">
+    <span class="checkmark"></span>
+  </label>
 
-    <button>submit</button>
+ <label for="dinner-date"class="surveyContainer">Go out to a nice restaurant or picnic and stare into each other’s eyes
+  <input type="radio" id="dio" name="ideal_date" value="Go out to a nice restaurant or picnic and stare into each other’s eyes">
+    <span class="checkmark"></span>
+  </label>
+
+  <label for="game-night"class="surveyContainer">Go out with a group of friends for a game night or drinks
+  <input type="radio" id="game-night" name="ideal_date" value="Go out with a group of friends for a game night or drinks">
+    <span class="checkmark"></span>
+  </label>
+
+  <label for="club-night"class="surveyContainer">Hit the club, take some shots, initiate the bender
+  <input type="radio" id="club-night" name="ideal_date" value="Hit the club, take some shots, initiate the bender">
+    <span class="checkmark"></span>
+  </label>
+
+ </div>
+  
+  {{!-- Intro --}}
+  <div class="surveyForm-control">
+  <p4> A brief self-introduction</p4>
+  <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Talk a bit more about yourself"></textarea>
+</div>
+  
+  
+  
+  <button class="survey-btn">Submit</button>
+  </div>
+  </div>
 </form>
+
 
 <script src="/js/survey.js"></script>

@@ -12,7 +12,8 @@ const surveyData = [
         language: "JavaScript",
         worker: "Work and energy drinks all night, everynight",
         ideal_date: "Stay in, get takeout, watch a movie or play video games",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/beybv9cgzva6chkxxsdz.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045482/4_ajjef8.jpg"
     },
     {
         user_id: 2,
@@ -25,7 +26,8 @@ const surveyData = [
         language: "C++",
         worker: "Hard worker but I need my social life balance",
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/co9qy8vxbf2qhc3knea3.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045482/2_xktk0w.jpg"
     },
     {
         user_id: 3,
@@ -38,7 +40,8 @@ const surveyData = [
         language: "Python",
         worker: "Bare minimum to get the work done then do other hobbies",
         ideal_date: "Go out with a group of friends for a game night or drinks",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/pwrcttkasibmy1tkt7i2.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/3_vljodp.jpg"
     },
     {
         user_id: 4,
@@ -51,7 +54,8 @@ const surveyData = [
         language: "HTML",
         worker: "None of the above",
         ideal_date: "Hit the club, take some shots, initiate the bender",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/xeloqi1url6heip5ny3f.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/placeimg_640_480_people_1_igtcko.jpg"
     },
     {
         user_id: 5,
@@ -64,7 +68,8 @@ const surveyData = [
         language: "JavaScript",
         worker: "Work and energy drinks all night, everynight",
         ideal_date: "Stay in, get takeout, watch a movie or play video games",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835947/te0jqgb9bvpalebnfk3d.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/placeimg_640_480_people_ebqjmx.jpg"
     },
     {
         user_id: 6,
@@ -77,7 +82,8 @@ const surveyData = [
         language: "C++",
         worker: "Hard worker but I need my social life balance",
         ideal_date: "Go out to a nice restaurant or picnic and stare into each other’s eyes",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835945/opboe2847jkdgqtekmpf.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045484/placeimg_640_480_people_jle8q3.png"
     },
     {
         user_id: 7,
@@ -90,7 +96,8 @@ const surveyData = [
         language: "Python",
         worker: "Bare minimum to get the work done then do other hobbies",
         ideal_date: "Go out with a group of friends for a game night or drinks",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835945/jelvqartpd6lwmav6v0d.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/1_ojbkxk.jpg"
     },
     {
         user_id: 8,
@@ -103,7 +110,64 @@ const surveyData = [
         language: "HTML",
         worker: "None of the above",
         ideal_date: "Hit the club, take some shots, initiate the bender",
-        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1635835948/xeloqi1url6heip5ny3f.png"
+        programmer_type: "Web Developer",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045484/placeimg_640_480_people_1_nwtkf5.png"
+    },
+    {
+        user_id: 9,
+        birthdate: "1985-08-22",
+        gender: "Male",
+        pref_gender: "Female",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/1_ojbkxk.jpg"
+    },
+    {
+        user_id: 10,
+        birthdate: "1994-07-23",
+        gender: "Male",
+        pref_gender: "Male",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045483/3_vljodp.jpg"
+    },
+    {
+        user_id: 11,
+        birthdate: "1994-11-13",
+        gender: "Female",
+        pref_gender: "Male",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045484/placeimg_640_480_people_1_nwtkf5.png"
+    },
+    {
+        user_id: 12,
+        birthdate: "2000-12-20",
+        gender: "Female",
+        pref_gender: "Female",
+        bio: "This is where someone will talk about themselves.",
+        relationship: "None of the above",
+        goal: "None of the above",
+        language: "HTML",
+        programmer_type: "Web Developer",
+        worker: "None of the above",
+        ideal_date: "Hit the club, take some shots, initiate the bender",
+        profile_pic: "https://res.cloudinary.com/coder-mingle/image/upload/v1636045484/placeimg_640_480_people_jle8q3.png"
     }
 ]
 

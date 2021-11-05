@@ -1,45 +1,84 @@
+
+<h1>We'd like to get to know you</h1>
+
 <form id="update-form">
-    <div>
-        <p3>Birthday:</p3>
-        <input type="text" id="birthdate" placeholder="update birthdate" value={{user.survey.birthdate}}>
-    </div>
 
-    <div>
-        <p3>Preferred Gender:</p3>
-        <input type="text" id="pref_gender" placeholder="update preferred gender" value={{user.survey.pref_gender}}>
-    </div>
-    
-    <div>
-        <p3>What you are looking for:</p3>
-        <input type="text" id="relationship" placeholder="update relationship" value={{user.survey.relationship}}>
-    </div>
+<div class="genderContainer">
 
-    <div>
-        <p3>You join Coder Mingle for:</p3>
-        <input type="text" id="goal" placeholder="update goal" value={{user.survey.goal}}>
-    </div>  
-     
-    <div>
-        <p3>Your preferred language:</p3>
-        <input type="text" id="language" placeholder="update preferred coding language" value={{user.survey.language}}>
-    </div>
+    <p>What is your gender?</p>
+    <input type="radio" id="female" name="gender" value="female" {{radioBtnHelper 'female' user.survey.gender}}>
+    <label for="female">Female</label><br>
+    <input type="radio" id="male" name="gender" value="male" {{radioBtnHelper 'male' user.survey.gender}}>
+    <label for="male">Male</label><br>
+    {{!-- <input type="radio" id="anyone" name="gender" value="prefer not to say" {{radioBtnHelper 'prefer not to say'
+        user.survey.gender}}>
+    <label for="anyone">Prefer not to say</label> --}}
 
-    <div>
-        <p3>Your working style is:</p3>
-        <input type="text" id="worker" placeholder="update working style" value={{user.survey.worker}}>
-    </div> 
+</div>
+    <br>
+    <br>
 
-    <div>
-        <p3>Ideal date night will be:</p3>
-        <input type="text" id="ideal_date" placeholder="update ideal date" value={{user.survey.ideal_date}}>
-    </div> 
-    
-    <div>
-        <p3>Update your bio:</p3>
-        <input type="text" id="bio" placeholder="bio" value={{user.survey.bio}}>
-    </div> 
+    <p>Who would you like to see on this site?</p>
+    <input type="radio" id="prefer_female" name="pref_gender" value="female" {{radioBtnHelper 'female'
+        user.survey.pref_gender}}>
+    <label for="prefer_female">Female</label><br>
+    <input type="radio" id="prefer_male" name="pref_gender" value="male" {{radioBtnHelper 'male'
+        user.survey.pref_gender}}>
+    <label for="prefer_male">Male</label><br>
+    <input type="radio" id="prefer_anyone" name="pref_gender" value="anyone" {{radioBtnHelper 'anyone'
+        user.survey.pref_gender}}>
+    <label for="prefer_anyone">Anyone</label>
 
-    <button>Update!</button>
+    <br>
+    <br>
+
+    <p>What is your birthdate?</p>
+    <input type="date" id="birthdate" name="birthdate" value={{user.survey.birthdate}}>
+    <label for="birthdate">Birthdate as MM/DD/YYYY</label><br>
+
+    <br>
+    <br>
+
+    <p>Why are you joining this dating site?</p>
+    <textarea rows="4" cols="50" id="goal" name="goal" >{{user.survey.goal}}</textarea>
+
+    <br>
+    <br>
+
+    <p>Relationship-wise, how do you see yourself in the future?</p>
+    <textarea rows="4" cols="50" id="relationship" name="relationship" >{{user.survey.relationship}}</textarea>
+
+    <br>
+    <br>
+
+    <p>What type of programmer are you?</p>
+    <textarea rows="4" cols="50" id="programmer_type" name="programmer_type" >{{user.survey.programmer_type}}</textarea>
+
+    <br>
+    <br>
+
+    <p>What is your favorite programming language?</p>
+    <textarea rows="4" cols="50" id="language" name="language" >{{user.survey.language}}</textarea>
+
+    <br>
+    <br>
+
+    <p>How would you describe your work ethic?</p>
+    <textarea rows="4" cols="50" id="worker" name="worker" >{{user.survey.worker}}</textarea>
+
+    <br>
+    <br>
+
+    <p>What is your ideal date night?</p>
+    <textarea rows="4" cols="50" id="ideal_date" name="ideal_date" >{{user.survey.ideal_date}}</textarea>
+
+    <p>A brief self-introduction</p>
+    <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Talk a bit more about yourself" >{{user.survey.bio}}</textarea>
+
+    <br>
+    <br>
+
+    <button>Update</button>
     <a href="/profile">Cancel</a>
 </form>
 
