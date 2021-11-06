@@ -55,7 +55,6 @@ router.get('/login', (req, res) => {
   // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    newMatches(req,res)
     let userId = getCurrentUserOrById(req)
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(userId, {
@@ -94,6 +93,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
   router.put('/profile', withAuth, async (req, res) => {
     try {
+      newMatches(req,res)
       // update profile based on its user id
       Survey.update(
         // update the field
@@ -161,7 +161,8 @@ router.get('/main', withAuth, async (req, res) => {
       const hbsImg = imgData.map(img=>img.get({plain:true}))
       res.render("userimages",{
         img:hbsImg,
-        isSelf: userId == req.session.user_id
+        isSelf: userId == req.session.user_id,
+        userId:userId
       })
     })
   })
