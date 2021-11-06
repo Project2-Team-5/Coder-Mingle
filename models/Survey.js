@@ -6,12 +6,6 @@ const sequelize = require('../config/connection');
 class Survey extends Model {}
 
 Survey.init({
-    first_name: {
-        type: DataTypes.STRING
-    },
-    last_name: {
-        type: DataTypes.STRING
-    },
     birthdate: {
         type: DataTypes.DATEONLY,
         allowNull: true
