@@ -28,7 +28,7 @@ const newMatches = (req,res) => {
             include: [Survey]
         }).then(userData=>{
             userGender=userData[0].survey.gender
-            if (userData[0].survey.pref_gender === "Both"){
+            if (userData[0].survey.pref_gender === "Both" || userData[0].survey.pref_gender === "anyone"){
                 userPref = ["Male","Female"]
             }
             else {
@@ -41,7 +41,7 @@ const newMatches = (req,res) => {
                             [Op.in]:userPref
                         },
                         pref_gender: {
-                            [Op.or]:[userGender,"Both"]
+                            [Op.or]:[userGender,"Both","anyone"]
                         }
                     }
                 }],
