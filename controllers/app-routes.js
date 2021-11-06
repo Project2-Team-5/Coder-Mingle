@@ -93,6 +93,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
   router.put('/profile', withAuth, async (req, res) => {
     try {
+      newMatches(res,res)
       // update profile based on its user id
       Survey.update(
         // update the field
