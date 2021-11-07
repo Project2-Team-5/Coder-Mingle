@@ -160,7 +160,8 @@ router.get('/main', withAuth, async (req, res) => {
       const hbsImg = imgData.map(img=>img.get({plain:true}))
       res.render("userimages",{
         img:hbsImg,
-        isSelf: userId == req.session.user_id
+        isSelf: userId == req.session.user_id,
+        userId:userId
       })
     })
   })
