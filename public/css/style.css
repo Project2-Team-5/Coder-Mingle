@@ -155,9 +155,9 @@ font-size: 45px;
   text-align: center;
   margin-right: auto;
   margin-left:auto ;
-  
-  
 }
+
+
 #post {
   margin-left: auto;
   margin-right: auto;
@@ -173,6 +173,17 @@ font-size: 45px;
   margin-top: 15px;
   padding: 5px;
 }
+
+.profile-btn {
+  position: relative;
+  padding: 10px;
+  background-color: var(--secondaryBlue);
+  border: double 2px gray;
+  color: var(--primaryPurp);
+  margin-top: 15px;
+  padding: 5px;
+}
+
 
 .comment-btn {
 margin-top: 10px;
@@ -363,7 +374,6 @@ a.matchCard {
   max-width: 800px;
   margin: 0px auto;
   padding: 30px 30px;
-  color: ;
   font-size: 20px;
   font-weight: 900;
   padding-bottom: 20px;
