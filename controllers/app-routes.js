@@ -56,6 +56,7 @@ router.get('/login', (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     let userId = getCurrentUserOrById(req)
+    newMatches(req,res)
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(userId, {
       attributes: { exclude: ['password'] },

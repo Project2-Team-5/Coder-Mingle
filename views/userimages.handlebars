@@ -1,18 +1,16 @@
 
-<h1>Select an Image to Either Delete it, or add it as a Profile Picture.</h1>
+<div class="grid-container">
 
 
-
-
-<div>
 {{#each img}}
-
-    <a href="/userimages/{{id}}">
-        <img src="{{url}}" alt="User Image {{id}}">
+    <a class="grid-item-2" href="/userimages/{{id}}">
+        <img class="grid-item" src="{{url}}" alt="User Image {{id}}">
     </a>
 
 {{/each}}
+
 </div>
+
 
 {{#if isSelf}}
 <button id="upload_widget" class="cloudinary-button">Upload Picture</button>
@@ -49,6 +47,14 @@
         myWidget.open();
     }, false);
 </script>
+<<<<<<< HEAD
 {{else}}
 <a href="./profile?id={{userId}}">Back to Profile</a>
 {{/if}}
+=======
+
+{{else}}
+<a id="back-btn" href="./profile?id={{userId}}">Back to Profile</a>
+{{/if}}
+</div>
+>>>>>>> dev

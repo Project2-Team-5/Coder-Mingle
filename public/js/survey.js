@@ -25,7 +25,7 @@ const surveyFormHandler = async (event) => {
   
       if (surveyResponse.ok) {
 
-        document.location.replace('/main');    
+        document.location.replace('/matching');    
       } else {
         alert(surveyResponse.statusText);                     
       }
