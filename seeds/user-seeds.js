@@ -44,10 +44,10 @@ const userData = [
         has_survey: true
     },
     {
-        first_name: "Morwenna",
-        last_name: "Simmon",
-        username: "Morwenna123",
-        email: "Morwenna@Simmon.com",
+        first_name: "Amay",
+        last_name: "Sharma",
+        username: "asharma",
+        email: "amay@amay.amay",
         password: "password",
         has_survey: true
     },
