@@ -5,7 +5,7 @@
 
 <div class="surveyForm-control">
 
-    <p>What is your gender?</p>
+    <p4>What is your gender?</p4>
     <label for="female"class="surveyContainer">Female
     <input type="radio" id="female" name="gender" value="female" {{radioBtnHelper 'female' user.survey.gender}}>
         <span class="checkmark"></span>
@@ -24,7 +24,7 @@
  
 <div class="surveyForm-control">
 
-    <p>Who would you like to see on this site?</p>
+    <p4>Who would you like to see on this site?</p4>
     <label for="prefer_female"class="surveyContainer">Female
     <input type="radio" id="prefer_female" name="pref_gender" value="female" {{radioBtnHelper 'female'
         user.survey.pref_gender}}>
@@ -46,52 +46,52 @@
 
 
   <div class="surveyForm-control">
-    <p>What is your birthdate?</p>
+    <p4>What is your birthdate?</p4>
     <input type="date" id="birthdate" name="birthdate" value={{user.survey.birthdate}}>
     <label for="birthdate">Birthdate as MM/DD/YYYY</label><br>
   </div>
 
  
 <div class="surveyForm-control">
-    <p>Why are you joining this dating site?</p>
+    <p4>Why are you joining this dating site?</p4>
     <textarea rows="4" cols="50" id="goal" name="goal" >{{user.survey.goal}}</textarea>
 </div>
 
 <div class="surveyForm-control">
-    <p>Relationship-wise, how do you see yourself in the future?</p>
+    <p4>Relationship-wise, how do you see yourself in the future?</p4>
     <textarea rows="4" cols="50" id="relationship" name="relationship" >{{user.survey.relationship}}</textarea>
 </div>
 
 <div class="surveyForm-control">
-    <p>What type of programmer are you?</p>
+    <p4>What type of programmer are you?</p4>
     <textarea rows="4" cols="50" id="programmer_type" name="programmer_type" >{{user.survey.programmer_type}}</textarea>
 </div>
 
 <div class="surveyForm-control">
-    <p>What is your favorite programming language?</p>
+    <p4>What is your favorite programming language?</p4>
     <textarea rows="4" cols="50" id="language" name="language" >{{user.survey.language}}</textarea>
 </div>
     
 <div class="surveyForm-control">
-    <p>How would you describe your work ethic?</p>
+    <p4>How would you describe your work ethic?</p4>
     <textarea rows="4" cols="50" id="worker" name="worker" >{{user.survey.worker}}</textarea>
 </div>
 
  
 <div class="surveyForm-control">
-    <p>What is your ideal date night?</p>
+    <p4>What is your ideal date night?</p4>
     <textarea rows="4" cols="50" id="ideal_date" name="ideal_date" >{{user.survey.ideal_date}}</textarea>
 </div>
 
 <div class="surveyForm-control">
-    <p>A brief self-introduction</p>
+    <p4>A brief self-introduction</p4>
     <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Talk a bit more about yourself" >{{user.survey.bio}}</textarea>
 </div>
 
 
 
-    <button class="profile-btn">Update</button>
-    <a class="profile-btn" href="/profile">Cancel</a>
+    <button class="btn2">Update</button>
+    <a class="btn2" href="/profile">Cancel</a>
 </div>
 </form>
 

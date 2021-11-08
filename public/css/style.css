@@ -1,27 +1,54 @@
 :root {
   --primaryBlue: #2a19eb;
-  --primaryBlue2:#2a19eb62;
   --secondaryBlue: #0ff0fc;
+  --tertiaryBlue:#2a19eb62;
+  --quaternaryBlue:#6A69F5;
+  --surveyBlue:rgba(130, 211, 248, 0.89);
+
   --primaryPurp:#9d00ff;
   --secondaryPurp:#daa8eb;
   
+  --primaryWhite:rgb(224, 236, 243);
+  --secondaryWhite:rgba(132, 185, 245, 0.918);
+
+  
+}
+p{
+
+  background:#697FF2
 }
 
 * {
-  background-color: rgb(206, 237, 255);
+  background-color: var(--secondaryWhite);
   font-family: sans-serif;
 }
 
 body {
   overscroll-behavior:none;
-  background-color:var(--primaryBlue2)
+  background-color:var(--tertiaryBlue)
 }
 
 header a:hover {
-  background-color:rgb(0, 221, 255);
+  background-color:var(--secondaryBlue);
   text-decoration: none;
 }
+.btn2 {
+  text-decoration: none;
+  position: relative;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--quaternaryBlue);
+  color: var(--secondaryWhite);
+  margin-top: 15px;
+  border-radius: 20px;
+  border: none;
+}
 
+.btn2:hover {
+  background-color: var(--primaryBlue);
+  color:var(--secondaryPurp)
+}
 .navbar {
   padding-top: 10px;
   margin-top: 0%;
@@ -30,10 +57,10 @@ header a:hover {
   justify-content: flex-end;
   background-image: linear-gradient(
     to bottom right,
-    #4d19eb 0%,
-    #0ff0fc 40%,
-    #daa8eb 60%,
-    #9d00ff 100%
+    var(--primaryBlue) 0%,
+    var(--secondaryBlue) 40%,
+    var(--secondaryPurp)  60%,
+    var(--primaryPurp)  100%
     );
     background-size: 200% 200%;
     animation: movingGradient 5s linear infinite alternate;
@@ -53,7 +80,7 @@ header a:hover {
   font-size: 40px;
   font-weight: bold;
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: var(--primaryWhite);
   margin-bottom: 0px;
   background-color: transparent;
   position:relative;
@@ -69,7 +96,25 @@ header a:hover {
   
   nav a {
 text-decoration: none;
+}
 
+
+.startBtn {
+  text-align: center;
+  width:300px;
+  height: 200px;
+  padding:10px;
+  color: var(--secondaryPurp);
+  background-color:var(--tertiaryBlue) ;
+  border: 7px solid var(--tertiaryBlue);
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+.startBtn:hover {
+  background-color: var(--secondarywhite);
+  text-decoration: none;
+  color: var(--quaternaryBlue);
 
 }
 
@@ -77,7 +122,7 @@ text-decoration: none;
 .navbar-brand {
   background-color: transparent;
   border: transparent;
-  color:white;
+  color:var(--primaryWhite);
   display:flex;
   font-size: 25px;
   font-weight: bold;
@@ -85,7 +130,7 @@ text-decoration: none;
 }
 
 .navbar-brand a:hover {
-  background-color:rgb(0, 221, 255);
+  background-color:var(--quaternaryBlue);
 }
 
 .logout-btn {
@@ -95,19 +140,24 @@ text-decoration: none;
 border:none;
 background-color: transparent;
 
-color:white;
+color:var(--primaryWhite);
 }
 
 .logout-btn:hover {
-background-color:rgb(0, 221, 255);
+background-color:var(--primaryBlue2);
 }
 
-.loginPage {
+#loginContainer {
+  background-color: #0ff0fc;
+}
+
+#loginPage {
   display:flex;
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
   padding-bottom: 60%;
+  background-color: var(--secondaryWhite);
 
 }
 
@@ -123,8 +173,8 @@ background-color:rgb(0, 221, 255);
 
  text-transform: capitalize;
   border-radius: 36px;
-  color: #ffffff;
-  background-color: #757575;
+  color: var(--primaryWhite);
+  background-color: gray;
   justify-content: center;
   margin: 10px;
 
@@ -144,7 +194,7 @@ background-color:rgb(0, 221, 255);
 
  text-transform: capitalize;
   border-radius: 36px;
-  color: #ffffff;
+  color:var(--primaryWhite);
   background-color: #757575;
   justify-content: center;
   margin: 10px;
@@ -156,7 +206,7 @@ background-color:rgb(0, 221, 255);
 
 .user {
   flex: 4;
-  background-color: #fff;
+  background-color: var(--primaryWhite);
   padding: 50px;
   display: flex;
   flex-flow: row wrap;
@@ -171,6 +221,7 @@ align-content: center;
 justify-content: center;
 text-align: center;
 }
+
 #homepage-title {
 padding: 20px;
 font-weight: 900;
@@ -215,21 +266,54 @@ font-size: 45px;
 }
 
 .edit-btn {
+  text-decoration: none;
   position: relative;
   padding: 10px;
-  background-color: var(--secondaryBlue);
-  border: double 2px gray;
-  color: var(--primaryPurp);
+  background-color: var(--quaternaryBlue);
+  color: var(--secondaryWhite);
   margin-top: 15px;
   padding: 5px;
   border-radius: 20px;
 }
+.comment-btn {
+  text-decoration: none;
+  position: relative;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--quaternaryBlue);
+  color: var(--secondaryWhite);
+  margin-top: 15px;
+  border-radius: 20px;
+  border: none;
+}
+.comment-btn:hover {
+  background-color: var(--primaryBlue);
+}
+
+#deleteBtn {
+  text-decoration: none;
+  position: relative;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--quaternaryBlue);
+  color: var(--secondaryWhite);
+  margin-top: 15px;
+  border-radius: 20px;
+  border: none;
+}
+
+#deleteBtn:hover{
+  background-color: var(--primaryBlue);
+}
+
 
 .profile-btn {
   position: relative;
   padding: 10px;
   background-color: var(--secondaryBlue);
-  border: double 2px gray;
+  border: double 2px grey;
   color: var(--primaryPurp);
   margin-top: 15px;
   padding: 5px;
@@ -244,6 +328,7 @@ margin-top: 10px;
 #commentContainer {
   text-align: center;
   margin: 10px;
+  color:var(--primaryWhite);
 
 }
 
@@ -290,13 +375,16 @@ img {
 #back-btn {
   position: absolute;
   border: 1px solid #777;
-  background-color: #fcb90f;
+  text-decoration: none;
+  background-color: var(--tertiaryBlue);
   border-radius: 2px;
   font-size: 32px;
   font-weight: bold;
   width: 100%;
   text-align: center;
   margin-bottom: 2px;
+  text-decoration: none;
+  color: var(--secondaryWhite);
   
 }
 .profPage {
@@ -306,18 +394,21 @@ img {
   padding-left: 5px;
 padding-right: 5px;
 padding-top: 40px;
+border-radius: 50px;
 }
 
 .profCardContainer {
   margin-top: 3px;
   margin-bottom: 3px;
-  border-radius: 50%;
+  border-radius: 50px;
 }
 
 #prof-name {
-  font-size: 32px;
-  font-weight:600;
+  font-size: auto;
+  font-weight:900;
   text-align: center;
+  font-family:sans-serif;
+  color: var(--primaryWhite);
 }
 
 p1 {
@@ -350,14 +441,12 @@ p1 {
 }
 
 .matchCard {
-  width: 100%;
-  font-size: 30px;
-  font-weight: 800;
-  text-align: center;
-  padding: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 50px;
+  margin: 20px;
+  flex: 0 1 300px;
+  border: 7px double var(--quaternaryBlue);
+  border-radius: 10px;
+  background-color: var(--primaryWhite);
+  color: var(--secondaryPurp);
 }
 
 a.matchCard {
@@ -378,8 +467,17 @@ a.matchCard {
   
 }
 
+.matchTitle{
+  color:var(--primaryWhite);
+  background-color: #697FF2;
+  text-align: center;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+
 #update-form {
-  background-color: aqua;
+  background-color: var(--secondaryBlue);
   margin-left: auto;
 }
 
@@ -395,7 +493,7 @@ a.matchCard {
     #9d00ff 100%
     );
     background-size: 200% 200%;
-    animation: movingGradient 5s linear infinite alternate;
+    animation: movingGradient 100s linear infinite alternate;
   }
   @keyframes movingGradient {
     from {
@@ -410,14 +508,15 @@ a.matchCard {
 }
 
 #surveyForm {
-  background: rgb(255,116,9);
-  background: linear-gradient(354deg, rgba(255,116,9,1) 0%, rgb(214, 73, 202) 24%, rgb(214, 73, 202) 60%, rgba(255,116,9,1) 100%);
+  background-image: linear-gradient(354deg, var(--primaryBlue) 0%, var(--secondaryBlue) 24%, var(--primaryPurp) 60%,var(--secondaryPurp)100%);
   max-width: 800px;
   margin: 0px auto;
   padding: 30px 30px;
   font-size: 20px;
   font-weight: 900;
   padding-bottom: 20px;
+  border-radius: 50px;
+  
 
 
 }
@@ -427,6 +526,7 @@ a.matchCard {
   padding-left: 10px;
   padding-bottom: 5px;
   border-radius: 10px;
+  background-color: var(--primaryWhite);
 
 }
 
@@ -435,14 +535,14 @@ a.matchCard {
   margin-bottom:10px;
   margin-top: 0px;
   display: flex;
-  justify-content: ;
   padding-right:40px;
   padding-left:40px;
   margin-right: 90px;
+  background-color: var(--primaryWhite);
 }
 
 .surveyForm-control input{
-  border: 2px solid rgb(0, 21, 255);
+  border: 2px solid var(--primaryBlue);
   border-radius: 2px;
   padding:10px;
   display: block;
@@ -451,11 +551,13 @@ a.matchCard {
   margin-left: 10px;
   margin-bottom: 15px;
   position: relative;
+  background-color: var(--primaryWhite);
 }
 
 
 .surveyForm-control textarea {
-  border: 2px solid rgb(115, 255, 45);
+  border: 2px solid var(--primaryPurp);
+  color:var(--primaryPurp);
   border-radius: 2px;
   padding:10px;
   display: block;
@@ -464,16 +566,17 @@ a.matchCard {
   margin-left: 10px;
   margin-bottom: 15px;
   position: relative;
+  background-color: var(--primaryWhite)
 
 }
 
 
 
 .survey-btn {
-  background-color: var(--primaryPurp);
+  background-color: var(--quaternaryBlue);
   color:var(--secondaryPurp);
-  border: 1px solid #777;
-  border-radius: 2px;
+  border: 1px solid gray;
+  border-radius: 50px;
   font-size: 21px;
   display: block;
   width: 100%;
@@ -491,6 +594,7 @@ p4 {
   flex-direction: row;
   justify-content: center;
   border-radius: 10px;
+  background-color: var(--primaryWhite);
 }
 
 
@@ -522,11 +626,11 @@ font-size: 22px;
 }
 
 .surveyContainer:hover input ~ .checkmark {
-  background-color:var(--secondaryBlue);
+  background-color:var(--quaternaryBlue);
 }
 
 .surveyContainer:checked ~ {
-  background-color: #fcb90f;
+  background-color: var(--quaternaryBlue);
 }
 
 .checkmark:after {
@@ -548,3 +652,15 @@ font-size: 22px;
   background-color: var(--secondaryPurp);
 }
 
+.cloudinary-button {
+  text-decoration: none;
+  position: relative;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--quaternaryBlue);
+  color: var(--secondaryWhite);
+  margin-top: 15px;
+  border-radius: 20px;
+  border: none;
+}

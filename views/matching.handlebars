@@ -1,12 +1,12 @@
 {{!-- <link rel="stylesheet" href="/css/userimage.css"> --}}
 {{#if pending}}
-<h1 class="text-center">Pending Matches</h1>
+<h1 class="matchTitle">We think you might like: </h1>
 
 <div class="d-flex flex-row flex-wrap mx-auto justify-content-center">
     {{#each pending}}
-    <a href="/pending/{{user_id}}" class="d-flex flex-column col-lg-3 m-1 justify-content-center p-2 border border-dark" id="userImg">
+    <a href="/pending/{{user_id}}" class="matchCard" id="userImg">
         <img src="{{profile_pic}}" alt="User Picture">
-        <h4 class="text-center mt-auto text-dark">{{user.username}}</h4>
+        <h4 class="matchTitle">{{user.username}}</h4>
     </a>
     {{/each}}
 </div>
@@ -14,13 +14,13 @@
 <div class="col-12 my-4"></div>
 {{/if}}
 {{#if approved}}
-<h1 class="text-center">Aproved Matches</h1>
+<h1 class="matchTitle">You are a great match with: </h1>
 
 <div class="d-flex flex-row flex-wrap mx-auto justify-content-center">
     {{#each approved}}
-    <a href="/profile?id={{user_id}}" class="d-flex flex-column col-lg-3 m-1 justify-content-center p-2 border border-dark" id="userImg">
+    <a href="/profile?id={{user_id}}" class="matchCard" id="userImg">
         <img src="{{profile_pic}}" alt="User Picture">
-        <h4 class="text-center mt-auto text-dark">{{user.username}}</h4>
+        <h4 class="matchTitle">{{user.username}}</h4>
     </a>
     {{/each}}
 </div>
