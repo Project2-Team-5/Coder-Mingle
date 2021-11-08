@@ -34,7 +34,9 @@ A dating website for people who code. This website uses the following NPM packag
         - [Pending](https://coder-mingle.herokuapp.com/api/matches/first)
         - [Approved](https://coder-mingle.herokuapp.com/api/matches/second)
   
-![Screenshot](images/screenshot.png)
+![Homepage](images/homepage.png)
+![Profile](images/profile.png)
+![Database](images/database.png)
 ## Credits
 Charlotte Hulseman - [GitHub Profile](https://github.com/charlottehulseman)  
 Julian Voros - [GitHub Profile](https://github.com/JuVoros)  
