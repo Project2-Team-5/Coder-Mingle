@@ -60,4 +60,4 @@ const updateProfileHandler = async (event) => {
 };
 
 
-document.querySelector('#update-form').addEventListener('submit', updateProfileHandler);
+document.querySelector('#surveyForm').addEventListener('submit', updateProfileHandler);
