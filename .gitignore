@@ -1,5 +1,7 @@
 settings.json
 
+errorlog.json
+
 # Logs
 logs
 *.log
