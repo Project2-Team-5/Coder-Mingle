@@ -198,5 +198,179 @@
             },
             "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);"
         }
+    },
+    {
+        "date": 1636322695087,
+        "error": {
+            "name": "SequelizeUniqueConstraintError",
+            "errors": [
+                {
+                    "message": "user.email must be unique",
+                    "type": "unique violation",
+                    "path": "user.email",
+                    "value": "test@test.com",
+                    "origin": "DB",
+                    "instance": {
+                        "id": null,
+                        "first_name": "test",
+                        "last_name": "test",
+                        "username": "test111",
+                        "email": "test@test.com",
+                        "password": "$2b$10$FwJSM3uqxVboBw5dCiDpRubPCjxDyY0agOGK4tqej2EWeCBIq1Iw."
+                    },
+                    "validatorKey": "not_unique",
+                    "validatorName": null,
+                    "validatorArgs": []
+                }
+            ],
+            "fields": {
+                "user.email": "test@test.com"
+            },
+            "parent": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'test@test.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "test111",
+                    "test@test.com",
+                    "$2b$10$FwJSM3uqxVboBw5dCiDpRubPCjxDyY0agOGK4tqej2EWeCBIq1Iw."
+                ]
+            },
+            "original": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'test@test.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "test111",
+                    "test@test.com",
+                    "$2b$10$FwJSM3uqxVboBw5dCiDpRubPCjxDyY0agOGK4tqej2EWeCBIq1Iw."
+                ]
+            },
+            "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);"
+        }
+    },
+    {
+        "date": 1636322704991,
+        "error": {
+            "name": "SequelizeUniqueConstraintError",
+            "errors": [
+                {
+                    "message": "user.email must be unique",
+                    "type": "unique violation",
+                    "path": "user.email",
+                    "value": "test@test.com",
+                    "origin": "DB",
+                    "instance": {
+                        "id": null,
+                        "first_name": "test",
+                        "last_name": "test",
+                        "username": "test111",
+                        "email": "test@test.com",
+                        "password": "$2b$10$snFh.9XVra8e9FEfaK5qou/fmYMI5lFqHHeZ1fLo/QgRn7ZLAqbNa"
+                    },
+                    "validatorKey": "not_unique",
+                    "validatorName": null,
+                    "validatorArgs": []
+                }
+            ],
+            "fields": {
+                "user.email": "test@test.com"
+            },
+            "parent": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'test@test.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "test111",
+                    "test@test.com",
+                    "$2b$10$snFh.9XVra8e9FEfaK5qou/fmYMI5lFqHHeZ1fLo/QgRn7ZLAqbNa"
+                ]
+            },
+            "original": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'test@test.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "test111",
+                    "test@test.com",
+                    "$2b$10$snFh.9XVra8e9FEfaK5qou/fmYMI5lFqHHeZ1fLo/QgRn7ZLAqbNa"
+                ]
+            },
+            "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);"
+        }
+    },
+    {
+        "date": 1636322716275,
+        "error": {
+            "name": "SequelizeUniqueConstraintError",
+            "errors": [
+                {
+                    "message": "user.email must be unique",
+                    "type": "unique violation",
+                    "path": "user.email",
+                    "value": "test@test.com",
+                    "origin": "DB",
+                    "instance": {
+                        "id": null,
+                        "first_name": "test",
+                        "last_name": "test",
+                        "username": "test111",
+                        "email": "test@test.com",
+                        "password": "$2b$10$UikFtDxSrr.9nZUeYDR0sORLvfQJErpttrZMJKCmE/DPaQcGBJSFi"
+                    },
+                    "validatorKey": "not_unique",
+                    "validatorName": null,
+                    "validatorArgs": []
+                }
+            ],
+            "fields": {
+                "user.email": "test@test.com"
+            },
+            "parent": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'test@test.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "test111",
+                    "test@test.com",
+                    "$2b$10$UikFtDxSrr.9nZUeYDR0sORLvfQJErpttrZMJKCmE/DPaQcGBJSFi"
+                ]
+            },
+            "original": {
+                "code": "ER_DUP_ENTRY",
+                "errno": 1062,
+                "sqlState": "23000",
+                "sqlMessage": "Duplicate entry 'test@test.com' for key 'user.email'",
+                "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);",
+                "parameters": [
+                    "test",
+                    "test",
+                    "test111",
+                    "test@test.com",
+                    "$2b$10$UikFtDxSrr.9nZUeYDR0sORLvfQJErpttrZMJKCmE/DPaQcGBJSFi"
+                ]
+            },
+            "sql": "INSERT INTO `user` (`id`,`first_name`,`last_name`,`username`,`email`,`password`) VALUES (DEFAULT,?,?,?,?,?);"
+        }
     }
 ]
